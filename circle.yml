@@ -1,0 +1,23 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t brownman/runner2 .
+    
+test:
+  override:
+     - echo override goes here
+     - docker run brownman/runner2 which npm
+   #  - docker run -d -p 9200:9200 brownman/docker-gitlab-ci-runner; sleep 10
+  #   - curl --retry 10 --retry-delay 5 -v http://localhost:9200
+
+deployment:
+  hub:
+    branch: master
+    commands:
+       - echo deployment goes here
+  #    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+   #    - docker push brownman/docker-gitlab-ci-runner
