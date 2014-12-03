@@ -53,7 +53,7 @@ RUN echo "user creation completed"
 #Configuration
 ADD . /docker
 RUN chmod +x /docker/install/mean.sh
-CMD    ["/bin/bash","/docker/install/mean.sh"]
+RUN bash -c  /docker/install/mean.sh
 
 RUN chmod +x /docker/run.sh
 
