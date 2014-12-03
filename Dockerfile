@@ -49,6 +49,7 @@ RUN npm update -g grunt-cli bower
 RUN npm install -g mean-cli@0.5
 RUN cd /home/mean; mean init myApp
 RUN cd /home/mean/myApp;   npm install -g
+RUN cd /home/mean/myApp;   npm link
 RUN cd /home/mean/myApp; grunt 
 #RUN cd /home/mean/mean ; sudo -u mean git checkout v0.4.0
 #RUN npm install -g npm-install-retry
