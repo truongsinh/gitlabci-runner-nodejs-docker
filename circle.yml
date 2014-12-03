@@ -9,8 +9,9 @@ dependencies:
     
 test:
   override:
-     - echo override goes here
-     - docker run brownman/runner2 which npm
+     - echo $(docker run -d brownman/runner2 /bin/bash -c "netstat -ntlp")
+     - docker inspect  brownman/runner2
+
    #  - docker run -d -p 9200:9200 brownman/docker-gitlab-ci-runner; sleep 10
   #   - curl --retry 10 --retry-delay 5 -v http://localhost:9200
 
