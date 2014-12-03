@@ -11,7 +11,7 @@ RUN apt-get update
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 #Runit Automatically setup all services in the sv directory
 ###################################### ####################################### packages
-RUN apt-get install -y less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo runit
+RUN apt-get install -y vim less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo runit
 ######################################## Runit
 CMD /usr/sbin/runsvdir-start
 ######################################## ####################################### install meanio prerequisites 
