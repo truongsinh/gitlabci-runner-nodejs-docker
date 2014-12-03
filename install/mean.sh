@@ -2,8 +2,9 @@ set -u
 set -e
 
 set_env(){
-  export dir_myApp="$HOME"
-  export myApp="$HOME/myApp" 
+  USER1='mean'
+  export dir_myApp="/home/$USER1"
+  export myApp="/home/$USER1/myApp" 
   export ver='0.9.3'
 }
 
@@ -28,18 +29,21 @@ cd $dir_myApp
 mean init myApp
 }
 
-test1(){
+after(){
+set_env
 cd $dir_myApp/myApp; 
 sudo  npm install -g
 sudo  npm link
 grunt test
 }
 
-steps(){
+before(){
 set_env   
   node1
   npm1
   init1
-  test1
 }
-steps
+
+
+cmd_start="${1:-before}" 
+eval "$cmd_start" 
