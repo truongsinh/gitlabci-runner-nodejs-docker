@@ -21,11 +21,10 @@ ADD . /docker
 RUN chmod +x /docker/install/mean.sh
 RUN chmod +x /docker/install/mongo.sh
 RUN chmod +x /docker/install/ssh.sh
-RUN chmod +x /docker/run.sh
 RUN chmod +x /docker/test.sh
-#RUN
-RUN bash -c  /docker/install/mongo.sh
+#INSTALL SERVICES
 RUN bash -c  /docker/install/mean.sh
+RUN bash -c  /docker/install/mongo.sh
 RUN bash -c  /docker/install/ssh.sh
 ###############################################################################Add runit services
 ADD sv /etc/service 
