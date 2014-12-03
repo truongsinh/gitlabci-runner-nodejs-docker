@@ -28,7 +28,6 @@ RUN bash -c  /docker/install/mongo.sh
 RUN bash -c  /docker/install/mean.sh
 RUN bash -c  /docker/install/ssh.sh
 ###############################################################################Add runit services
-WORKDIR /webapps/grassroots
 ADD sv /etc/service 
 #########################################               ######################################
 #RUN bash -c /docker/run.sh
