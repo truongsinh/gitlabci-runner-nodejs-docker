@@ -44,10 +44,10 @@ RUN echo "user creation completed"
 # Init the application,install dependencies and run grunt
 #RUN sudo -H -u mean git clone https://github.com/linnovate/mean /home/mean/mean
 
-RUN sudo npm update -g npm
-RUN cd /home/mean; sudo npm install -g mean-cli
+RUN   npm update -g npm
+RUN cd /home/mean;   npm install -g mean-cli
 RUN cd /home/mean; mean init myApp
-RUN cd /home/mean/myApp; sudo npm install -g
+RUN cd /home/mean/myApp;   npm install -g
 RUN cd /home/mean/myApp; grunt 
 #RUN cd /home/mean/mean ; sudo -u mean git checkout v0.4.0
 #RUN npm install -g npm-install-retry
