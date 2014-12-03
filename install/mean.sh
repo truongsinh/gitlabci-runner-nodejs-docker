@@ -35,7 +35,7 @@ set_env
 cd $dir_myApp/myApp; 
 sudo  npm install -g
 sudo  npm link
-grunt test
+#grunt test
 }
 
 before(){
@@ -46,5 +46,7 @@ set_env
 }
 
 
-cmd_start="${1:-before}" 
-eval "$cmd_start" 
+#cmd_start="${1:-before}" 
+#eval "$cmd_start" 
+before
+after
