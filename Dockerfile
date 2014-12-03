@@ -34,13 +34,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less net-tools inetutils-p
 
 
 
-#MongoDB
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
-    echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' > /etc/apt/sources.list.d/mongodb.list && \
-    apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mongodb-org
-RUN mkdir -p /data/db
-RUN chown -R mongodb:mongodb /data
+
 
 # Create a mean user
 RUN mkdir -p /home/mean
@@ -66,9 +60,13 @@ RUN echo "user creation completed"
 #Configuration
 ADD . /docker
 RUN chmod +x /docker/install/mean.sh
+RUN chmod +x /docker/install/mongo.sh
+ 
+RUN chmod +x /docker/run.sh
+
+RUN bash -c  /docker/install/mongo.sh
 RUN bash -c  /docker/install/mean.sh
 
-RUN chmod +x /docker/run.sh
 
 #Runit Automatically setup all services in the sv directory
 #RUN for dir in /docker/sv/*; do echo $dir; chmod +x $dir/run $dir/log/run; ln -s $dir /etc/service/; done
