@@ -32,7 +32,7 @@ test1(){
 cd $dir_myApp/myApp; 
 sudo  npm install -g
 sudo  npm link
-grunt 
+grunt test
 }
 
 steps(){
