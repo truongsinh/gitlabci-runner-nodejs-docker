@@ -50,7 +50,7 @@ RUN sudo npm install -g mean-cli@0.5
 RUN cd /home/mean; mean init myApp
 RUN cd /home/mean/myApp;  sudo  npm install -g
 RUN cd /home/mean/myApp;  sudo  npm link
-RUN cd /home/mean/myApp; grunt 
+RUN cd /home/mean/myApp; grunt test
 #RUN cd /home/mean/mean ; sudo -u mean git checkout v0.4.0
 #RUN npm install -g npm-install-retry
 #RUN cd /home/mean/mean ; sudo -H -u mean npm-install-retry --wait 5000 --attempts 10
