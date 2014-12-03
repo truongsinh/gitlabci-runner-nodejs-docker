@@ -11,7 +11,7 @@ RUN apt-get update
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 #Runit Automatically setup all services in the sv directory
 ###################################### ####################################### packages
-RUN apt-get install -y vim less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo runit
+RUN apt-get install -y less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo runit
 ######################################## Runit
 CMD /usr/sbin/runsvdir-start
 ######################################## ####################################### install meanio prerequisites 
@@ -33,5 +33,5 @@ ADD sv /etc/service
 #########################################               ######################################
 #RUN bash -c /docker/run.sh
 #RUN bash -c /docker/test.sh
-CMD    ["/bin/bash","echo hello world"]
+CMD    ["/bin/bash","mongod --fork -f /etc/mongod.conf; cd /opt/mean1/myApp; grunt test"]
 EXPOSE 22 3000
