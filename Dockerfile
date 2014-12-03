@@ -45,7 +45,8 @@ RUN echo "user creation completed"
 #RUN sudo -H -u mean git clone https://github.com/linnovate/mean /home/mean/mean
 
 RUN   npm update -g npm
-RUN cd /home/mean;   npm install -g mean-cli@0.5
+RUN npm update -g grunt-cli bower
+RUN npm install -g mean-cli@0.5
 RUN cd /home/mean; mean init myApp
 RUN cd /home/mean/myApp;   npm install -g
 RUN cd /home/mean/myApp; grunt 
