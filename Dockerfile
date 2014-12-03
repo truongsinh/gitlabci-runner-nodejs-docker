@@ -1,10 +1,23 @@
 FROM ubuntu:14.04
- 
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update
+
+RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
+
+#Runit
+RUN apt-get install -y runit 
+CMD /usr/sbin/runsvdir-start
+
+
+
+
+
 RUN echo 'deb http://il.archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list && \
     echo 'deb http://il.archive.ubuntu.com/ubuntu precise-updates main universe' >> /etc/apt/sources.list && \
     apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+#RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 #Runit
 #RUN DEBIAN_FRONTEND=noninteractive apt-get install -y runit 
@@ -62,6 +75,15 @@ RUN chmod +x /docker/run.sh
 
 #ENV HOME /root
 #WORKDIR /root
+#RUN bash -c /docker/run.sh
+#RUN bash -c /docker/test.sh
 
-CMD    ["/bin/bash","/docker/run.sh"]
+#Add runit services
+WORKDIR /webapps/grassroots
+ADD sv /etc/service 
+
+
+CMD    ["/bin/bash","echo hello world"]
+
+
 EXPOSE 22 3000
