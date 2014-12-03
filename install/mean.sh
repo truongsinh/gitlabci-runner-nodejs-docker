@@ -2,10 +2,12 @@
 
 node1(){
 #Node
+  local dir='/tmp'
+  cd $dir
   curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
-  mv node* node && \
-    ln -s /node/bin/node /usr/local/bin/node && \
-    ln -s /node/bin/npm /usr/local/bin/npm
+  mv $dir/node* $dir/node && \
+    ln -s $dir/node/bin/node /usr/local/bin/node && \
+    ln -s $dir/node/bin/npm /usr/local/bin/npm
 }
 
 npm1(){
