@@ -42,12 +42,19 @@ RUN echo "user creation completed"
 
 #Install mean cli
 # Init the application,install dependencies and run grunt
-RUN sudo -H -u mean git clone https://github.com/linnovate/mean /home/mean/mean
-RUN cd /home/mean/mean ; sudo -u mean git checkout v0.4.0
-RUN npm install -g npm-install-retry
-RUN cd /home/mean/mean ; sudo -H -u mean npm-install-retry --wait 5000 --attempts 10
-RUN cd /home/mean/mean ; sudo -H -u mean node_modules/bower/bin/bower install -q
-RUN cd /home/mean/mean ; sudo -H -u mean node_modules/grunt-cli/bin/grunt cssmin uglify
+#RUN sudo -H -u mean git clone https://github.com/linnovate/mean /home/mean/mean
+
+RUN cd sudo npm update npm
+RUN cd /home/mean; sudo npm install -g mean-cli
+RUN cd /home/mean; mean init myApp
+RUN cd /home/mean/myApp; sudo npm install -g
+RUN cd /home/mean/myApp; grunt 
+#RUN cd /home/mean/mean ; sudo -u mean git checkout v0.4.0
+#RUN npm install -g npm-install-retry
+#RUN cd /home/mean/mean ; sudo -H -u mean npm-install-retry --wait 5000 --attempts 10
+#RUN cd /home/mean/mean ; sudo -H -u mean node_modules/bower/bin/bower install -q
+#RUN cd /home/mean/mean ; sudo -H -u mean node_modules/grunt-cli/bin/grunt cssmin uglify
+
 
 #Configuration
 ADD . /docker
