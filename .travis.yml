@@ -1,0 +1,4 @@
+language: ruby
+script:
+  - chmod u+x ./install/mean.sh
+  - ./install/mean.sh
