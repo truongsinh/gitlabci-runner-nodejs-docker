@@ -1,4 +1,7 @@
-
+set_env(){
+  export dir_myApp="$HOME"
+  export myApp="$HOME/myApp" 
+}
 
 node1(){
 #Node
@@ -17,21 +20,19 @@ sudo npm install -g mean-cli@0.5
 }
 
 init1(){
+cd $dir_myApp
 mean init myApp
-cd myApp; 
-sudo  npm install -g
-sudo  npm link
 }
 
 test1(){
-cd $HOME/myApp;
+cd $dir_myApp/myApp; 
+sudo  npm install -g
+sudo  npm link
 grunt 
 }
 
 steps(){
-  myApp=$HOME/myApp
-  cd $HOME
-  
+set_env   
   node1
   npm1
   init1
