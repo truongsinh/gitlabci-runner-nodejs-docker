@@ -4,6 +4,7 @@ set -e
 set_env(){
   export dir_myApp="$HOME"
   export myApp="$HOME/myApp" 
+  export ver='0.9.3'
 }
 
 node1(){
@@ -19,7 +20,7 @@ node1(){
 npm1(){
 sudo npm update -g npm
 sudo npm install -g grunt-cli bower
-sudo npm install -g mean-cli@0.5
+sudo npm install -g mean-cli@${ver}
 }
 
 init1(){
