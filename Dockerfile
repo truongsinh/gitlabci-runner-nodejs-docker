@@ -18,11 +18,7 @@ RUN echo 'root:mean22' | chpasswd
 #Utilities
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo
 
-#Node
-RUN curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
-RUN mv node* node && \
-    ln -s /node/bin/node /usr/local/bin/node && \
-    ln -s /node/bin/npm /usr/local/bin/npm
+
 
 
 #MongoDB
@@ -44,13 +40,9 @@ RUN echo "user creation completed"
 # Init the application,install dependencies and run grunt
 #RUN sudo -H -u mean git clone https://github.com/linnovate/mean /home/mean/mean
 
-RUN sudo   npm update -g npm
-RUN sudo npm install -g grunt-cli bower
-RUN sudo npm install -g mean-cli@0.5
-RUN cd /home/mean; mean init myApp
-RUN cd /home/mean/myApp;  sudo  npm install -g
-RUN cd /home/mean/myApp;  sudo  npm link
-RUN cd /home/mean/myApp; grunt test
+#Node
+
+
 #RUN cd /home/mean/mean ; sudo -u mean git checkout v0.4.0
 #RUN npm install -g npm-install-retry
 #RUN cd /home/mean/mean ; sudo -H -u mean npm-install-retry --wait 5000 --attempts 10
@@ -60,6 +52,9 @@ RUN cd /home/mean/myApp; grunt test
 
 #Configuration
 ADD . /docker
+RUN chmod +x /docker/install/mean.sh
+CMD    ["/bin/bash","/docker/install/mean.sh"]
+
 RUN chmod +x /docker/run.sh
 
 #Runit Automatically setup all services in the sv directory
