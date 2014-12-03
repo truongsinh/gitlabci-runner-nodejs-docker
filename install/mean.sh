@@ -3,7 +3,8 @@ set -e
 
 set_env(){
   export dir_myApp="/opt/mean1"
-  mkdir -p $dir_myApp
+  test -d $dir_myApp || { sudo mkdir -p $dir_myApp;  chmod 777 $dir_myApp;  }
+ 
   export myApp="$dir_myApp/myApp" 
   export ver='0.9.3'
 }
