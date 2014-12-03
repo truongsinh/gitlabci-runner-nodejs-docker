@@ -2,9 +2,9 @@ set -u
 set -e
 
 set_env(){
-  USER1='mean'
-  export dir_myApp="/home/$USER1"
-  export myApp="/home/$USER1/myApp" 
+  export dir_myApp="/opt/mean1"
+  mkdir -p $dir_myApp
+  export myApp="$dir_myApp/myApp" 
   export ver='0.9.3'
 }
 
