@@ -1,3 +1,6 @@
+set -u
+set -e
+
 set_env(){
   export dir_myApp="$HOME"
   export myApp="$HOME/myApp" 
