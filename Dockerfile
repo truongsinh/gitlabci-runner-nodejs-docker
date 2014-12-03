@@ -3,11 +3,10 @@ FROM ubuntu:14.04
 ##################################### ENV VARS
 ENV DEBIAN_FRONTEND noninteractive
 ###################################### ###################################### source.list
-
 RUN echo 'deb http://il.archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list && \
-    echo 'deb http://il.archive.ubuntu.com/ubuntu precise-updates main universe' >> /etc/apt/sources.list && 
-RUN apt-get update
+    echo 'deb http://il.archive.ubuntu.com/ubuntu precise-updates main universe' >> /etc/apt/sources.list
 
+RUN apt-get update
 ###################################### avoid warning: upstart (restarting deamons)
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 #Runit Automatically setup all services in the sv directory
@@ -23,6 +22,7 @@ RUN chmod +x /docker/install/mean.sh
 RUN chmod +x /docker/install/mongo.sh
 RUN chmod +x /docker/install/ssh.sh
 RUN chmod +x /docker/run.sh
+RUN chmod +x /docker/test.sh
 #RUN
 RUN bash -c  /docker/install/mongo.sh
 RUN bash -c  /docker/install/mean.sh
