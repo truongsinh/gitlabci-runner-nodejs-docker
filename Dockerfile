@@ -17,8 +17,7 @@ RUN apt-get install -y less net-tools inetutils-ping curl git telnet nmap socat 
                         runit
 ######################################## Runit
 CMD /usr/sbin/runsvdir-start
-######################################## ####################################### install prerequisites for the mean stack 
-pre-requisites
+######################################## ####################################### install meanio prerequisites 
 #CP
 ADD . /docker
 #PERMIT
