@@ -1,4 +1,7 @@
-FROM ubuntu:14.04
+FROM ubuntu:12.04
+#FROM ubuntu:14.04
+
+
 
 ##################################### ENV VARS
 ENV DEBIAN_FRONTEND noninteractive
