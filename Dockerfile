@@ -30,5 +30,6 @@ ADD sv /etc/service
 #########################################               ######################################
 #RUN bash -c /docker/run.sh
 #RUN bash -c /docker/test.sh
+RUN env > $CIRCLE_ARTIFACTS/env.txt
 CMD    ["/bin/bash","mongod --fork -f /etc/mongod.conf; cd /opt/mean1/myApp; grunt test"]
 EXPOSE 22 3000 27017
