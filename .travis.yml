@@ -1,4 +1,5 @@
-language: node_js
+language: python
+#node_js
 #services: mongodb
 
 matrix:
@@ -7,6 +8,7 @@ matrix:
 cache:
   - apt
   - npm
+  - bundler
   
 script:
   - chmod u+x travis.sh
