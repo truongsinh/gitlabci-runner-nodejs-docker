@@ -1,32 +1,16 @@
 FROM ubuntu:14.04
 #FROM ubuntu:12.04
-
-
-
 ##################################### ENV VARS
 ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update
 ###################################### avoid warning: upstart (restarting deamons)
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
-#Runit Automatically setup all services in the sv directory
 ###################################### ####################################### packages
 ADD . /docker
 RUN source /docker/config.cfg
 RUN commander 'echo nicer output is comming'
-#PERMIT
-#RUN source config.cfg
+############################################### install stuff we can test using travis.ci
 RUN chmod +x /docker/travis.sh
 RUN  /docker/travis.sh
-###############################################################################Add runit services
-######################################## Runit
-#CMD /usr/sbin/runsvdir-start
-#ADD sv /etc/service 
-#########################################               ######################################
-#RUN bash -c /docker/run.sh
-#RUN bash -c /docker/test.sh
-#CMD    ["/bin/bash","mongod --fork -f /etc/mongod.conf; cd /opt/mean1/myApp; grunt test"]
-#EXPOSE 22 3000 27017
 ################################################ GITLAB RUNNER CODE GOES HERE
 # Set an utf-8 locale
 RUN echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/default/locale
