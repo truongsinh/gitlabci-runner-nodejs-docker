@@ -14,10 +14,16 @@ RUN  /docker/travis.sh
 # Set an utf-8 locale
 #LANG="en_US.UTF-8"
 
+################################################################################### FIX LOCALS
+# Set the locale
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
 #RUN echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
-RUN locale-gen en_US.UTF-8
-RUN update-locale LANG=en_US.UTF-8
-
+#RUN locale-gen en_US.UTF-8
+#RUN update-locale LANG=en_US.UTF-8
+###################################################################################
 # Prepare a known host file for non-interactive ssh connections
 RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/known_hosts
