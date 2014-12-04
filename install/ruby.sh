@@ -76,6 +76,7 @@ sudo bundle install --deployment
 
 mute install_ruby_ubuntu
 #mute ruby20
-install_bundler #+mute extra docs
+mute ruby20
+#install_bundler #+mute extra docs
 type bundler
 install_gitlab_repo
