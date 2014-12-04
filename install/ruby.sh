@@ -37,9 +37,9 @@ sudo  gem install bundler
 }
 install_ruby_ubuntu(){
   #https://www.ruby-lang.org/en/installation/
-   sudo apt-get install ruby-full
+   sudo apt-get install -y ruby-full
 }
 
 mute install_ruby_ubuntu
 #mute ruby20
-mute install_bundler #+mute extra docs
+install_bundler #+mute extra docs
