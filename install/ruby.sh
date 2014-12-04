@@ -56,7 +56,7 @@ sudo make install
 # don't install ruby rdocs or ri:
 install_bundler(){
 echo "gem: --no-rdoc --no-ri" | sudo tee /usr/local/etc/gemrc
-sudo gem install bundler
+gem install bundler
 }
 install_ruby_ubuntu(){
 #https://www.ruby-lang.org/en/installation/
@@ -73,11 +73,13 @@ curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archi
 cd gitlab-ci-runner.git
 bundle install --deployment
 }
-
+ensure_bundler_exist(){
+  type bundler
+}
 
 mute install_ruby_ubuntu
 #mute ruby20
 mute travis_only
-#install_bundler #+mute extra docs
-type bundler
+install_bundler
+ensure_bundler_exist
 install_gitlab_repo
