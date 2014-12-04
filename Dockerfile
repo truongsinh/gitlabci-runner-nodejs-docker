@@ -11,24 +11,20 @@ RUN apt-get update
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 #Runit Automatically setup all services in the sv directory
 ###################################### ####################################### packages
-
-######################################## Runit
-#CMD /usr/sbin/runsvdir-start
-######################################## ####################################### install meanio prerequisites 
-#CP
 ADD . /docker
 RUN source /docker/config.cfg
 RUN commander 'echo nicer output is comming'
 #PERMIT
 #RUN source config.cfg
-RUN chmod +x /docker/install/travis.sh
-RUN  /docker/install/travis.sh
+RUN chmod +x /docker/travis.sh
+RUN  /docker/travis.sh
 ###############################################################################Add runit services
+######################################## Runit
+#CMD /usr/sbin/runsvdir-start
 #ADD sv /etc/service 
 #########################################               ######################################
 #RUN bash -c /docker/run.sh
 #RUN bash -c /docker/test.sh
-
 #CMD    ["/bin/bash","mongod --fork -f /etc/mongod.conf; cd /opt/mean1/myApp; grunt test"]
 #EXPOSE 22 3000 27017
 ################################################ GITLAB RUNNER CODE GOES HERE
