@@ -23,12 +23,12 @@ CMD /usr/sbin/runsvdir-start
 ADD . /docker
 #PERMIT
 #RUN source config.cfg
-RUN chmod +x /docker/install/mean.sh
-RUN chmod +x /docker/install/mongo.sh
-RUN chmod +x /docker/install/ssh.sh
+RUN chmod +x *.sh /docker/install -R 
 #INSTALL SERVICES
+RUN bash -c  /docker/install/apt.sh
 RUN bash -c  /docker/install/mean.sh
 RUN bash -c  /docker/install/mongo.sh
+RUN bash -c  /docker/install/ruby.sh
 RUN bash -c  /docker/install/ssh.sh
 ###############################################################################Add runit services
 ADD sv /etc/service 
