@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+trap trap_err ERR
+set -u
+
+trap_err(){
+  exit 1
+}
 
 pushd `dirname $0` >/dev/null
 
