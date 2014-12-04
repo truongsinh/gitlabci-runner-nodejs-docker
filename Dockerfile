@@ -7,8 +7,8 @@ FROM ubuntu:14.04
 ENV DEBIAN_FRONTEND noninteractive
 
 ###################################### ###################################### source.list
-RUN echo 'deb http://il.archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list && \
-    echo 'deb http://il.archive.ubuntu.com/ubuntu precise-updates main universe' >> /etc/apt/sources.list
+#RUN echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe" > /etc/apt/sources.list && \
+#    echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc)-updates main universe" >> /etc/apt/sources.list
 
 RUN apt-get update
 ###################################### avoid warning: upstart (restarting deamons)
@@ -16,6 +16,9 @@ RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 #Runit Automatically setup all services in the sv directory
 ###################################### ####################################### packages
 RUN apt-get install -y less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo runit
+RUN apt-get install -y build-essential curl zlib1g-dev libreadline-dev libssl-dev libcurl4-openssl-dev git libmysqlclient-dev
+#mysql-server
+
 ######################################## Runit
 CMD /usr/sbin/runsvdir-start
 ######################################## ####################################### install meanio prerequisites 
