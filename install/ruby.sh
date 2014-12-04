@@ -65,4 +65,5 @@ sudo apt-get install -y ruby-full
 
 mute install_ruby_ubuntu
 #mute ruby20
-install_bundler #+mute extra docs
+#install_bundler #+mute extra docs
+type bundler
