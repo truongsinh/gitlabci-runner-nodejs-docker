@@ -1,6 +1,7 @@
 #INSTALL SERVICES
 chmod u+x ./install/*.sh
-
+source ./config.cfg
+commander 'echo nicer output is comming'
 
 #install ubuntu packages
 bash -c  ./install/apt.sh 
