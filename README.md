@@ -8,3 +8,10 @@ gitlabci-runner-nodejs-docker
 =============================
 
 nodejs npm bower grunt-cli redis mongodb
+
+
+solution
+====
+- use 1 docker container as the image !
+- use 1 docker container as the runner !
+- [link](http://dockerfile.github.io/#/ruby-runtime)
