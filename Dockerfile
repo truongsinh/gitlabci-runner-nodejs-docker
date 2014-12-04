@@ -5,7 +5,6 @@ FROM ubuntu:14.04
 
 ##################################### ENV VARS
 ENV DEBIAN_FRONTEND noninteractive
-
 ###################################### ###################################### source.list
 #RUN echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe" > /etc/apt/sources.list && \
 #    echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc)-updates main universe" >> /etc/apt/sources.list
@@ -23,13 +22,8 @@ RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 ADD . /docker
 #PERMIT
 #RUN source config.cfg
-RUN chmod +x /docker/install/*.sh
-#INSTALL SERVICES
-RUN bash -c  /docker/install/apt.sh
-RUN bash -c  /docker/install/mean.sh
-RUN bash -c  /docker/install/mongo.sh
-RUN bash -c  /docker/install/ruby.sh
-RUN bash -c  /docker/install/ssh.sh
+RUN chmod +x /docker/install/travis.sh
+RUN  /docker/install/travis.sh
 ###############################################################################Add runit services
 #ADD sv /etc/service 
 #########################################               ######################################
