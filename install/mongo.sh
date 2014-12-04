@@ -1,4 +1,5 @@
 #MongoDB
+#https://www.digitalocean.com/community/tutorials/how-to-install-a-mean-js-stack-on-an-ubuntu-14-04-server
 DEBIAN_FRONTEND=noninteractive
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
