@@ -35,6 +35,10 @@ install_bundler(){
 echo "gem: --no-rdoc --no-ri" | sudo tee /usr/local/etc/gemrc
 sudo  gem install bundler
 }
-
-mute ruby20
+install_ruby_ubuntu(){
+  #https://www.ruby-lang.org/en/installation/
+   sudo apt-get install ruby-full
+}
+install_ruby_ubuntu
+#mute ruby20
 mute install_bundler #+mute extra docs
