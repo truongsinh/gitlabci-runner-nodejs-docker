@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+pushd `dirname $0` >/dev/null
 
 #INSTALL SERVICES
 chmod u+x ./install/*.sh
@@ -14,3 +15,5 @@ bash -c  ./install/mean.sh
 bash -c  ./install/mongo.sh
 bash -c  ./install/ruby.sh
 bash -c  ./install/ssh.sh
+
+popd >/dev/null
