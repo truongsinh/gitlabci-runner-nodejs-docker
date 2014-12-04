@@ -7,12 +7,11 @@ ENV MODE_DEBUG false
 ###################################### ####################################### packages
 ADD . /docker
 
-CMD /usr/sbin/runsvdir-start
+RUN apt-get install sudo
 ############################################### install stuff we can test using travis.ci
 RUN chmod +x /docker/travis.sh
 RUN  /docker/travis.sh
 ################################################ GITLAB RUNNER CODE GOES HERE
-ADD sv /etc/service 
 
 # Set an utf-8 locale
 #LANG="en_US.UTF-8"
