@@ -1,2 +1,2 @@
 cowsay
-fortune
+fortune-mod
