@@ -55,4 +55,4 @@ before(){
 #eval "$cmd_start" 
 set_env
 before
-#after
+after
