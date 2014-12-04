@@ -1,27 +1,22 @@
 #!/usr/bin/env bash
 pushd `dirname $0` >/dev/null
-
-
-
-trap trap_err ERR
 set -u
 
-trap_err(){
-  echo $FUNCNAME
-  exit 1
+set_env(){
+source config.cfg
+trap trap_err ERR
+chmod u+x install/*.sh
 }
 
-
-#INSTALL SERVICES
-chmod u+x install/*.sh
-source config.cfg
-
+steps(){
 #install ubuntu packages
 while read line;do
   test -n "$line" || break
   commander install/${line}.sh 
 done < <( cat list.txt )
+}
 
-
+set_env
+steps
 
 popd >/dev/null
