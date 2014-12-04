@@ -15,7 +15,6 @@ trap_err(){
 #INSTALL SERVICES
 chmod u+x install/*.sh
 source config.cfg
-commander 'echo nicer output is comming'
 
 #install ubuntu packages
 while read line;do
