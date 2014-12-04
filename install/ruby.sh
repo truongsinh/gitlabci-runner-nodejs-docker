@@ -56,7 +56,7 @@ sudo make install
 # don't install ruby rdocs or ri:
 install_bundler(){
 echo "gem: --no-rdoc --no-ri" | sudo tee /usr/local/etc/gemrc
-gem install bundler
+sudo gem install bundler
 }
 install_ruby_ubuntu(){
 #https://www.ruby-lang.org/en/installation/
