@@ -6,8 +6,9 @@ ENV MODE_DEBUG false
 ###################################### avoid warning: upstart (restarting deamons)
 ###################################### ####################################### packages
 ADD . /docker
+RUN echo IMAGINE APT-GET UPDATE..
+RUN apt-get -y update 1>/dev/null
 
-RUN apt-get -y update
 #RUN apt-get -y upgrade #TAKES A LIFE TIME
 
 RUN apt-get install sudo
