@@ -67,16 +67,17 @@ install_gitlab_repo(){
 #NEEDED: curl
 local dir=/opt/gitlab-ci-runner
 sudo mkdir -p $dir
+sudo chown 777 $dir #UN-SUDO
 cd $dir
-curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | sudo tar xz
+curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
 cd gitlab-ci-runner.git
-sudo bundle install --deployment
+bundle install --deployment
 }
 
 
 mute install_ruby_ubuntu
 #mute ruby20
-mute ruby20
+mute travis_only
 #install_bundler #+mute extra docs
 type bundler
 install_gitlab_repo
