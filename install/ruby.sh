@@ -36,5 +36,5 @@ echo "gem: --no-rdoc --no-ri" | sudo tee /usr/local/etc/gemrc
 sudo  gem install bundler
 }
 
-ruby20
-install_bundler #+mute extra docs
+mute ruby20
+mute install_bundler #+mute extra docs
