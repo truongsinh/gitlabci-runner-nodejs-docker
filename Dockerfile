@@ -6,8 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 ###################################### ####################################### packages
 ADD . /docker
-RUN source /docker/config.cfg
-RUN commander 'echo nicer output is comming'
+
 ############################################### install stuff we can test using travis.ci
 RUN chmod +x /docker/travis.sh
 RUN  /docker/travis.sh
