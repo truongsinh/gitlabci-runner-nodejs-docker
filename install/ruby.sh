@@ -42,7 +42,7 @@ sudo make install
 
 ruby20(){
 sudo apt-get update -y
-sudo apt-get install -y wget curl gcc libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libc6-dev libssl-dev make build-essential zlib1g-dev openssh-server git-core libyaml-dev postfix libpq-dev libicu-dev
+sudo apt-get install -y curl wget curl gcc libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libc6-dev libssl-dev make build-essential zlib1g-dev openssh-server git-core libyaml-dev postfix libpq-dev libicu-dev
 
 mkdir /tmp/ruby && cd /tmp/ruby
 curl --progress ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz | tar xz
@@ -63,7 +63,18 @@ install_ruby_ubuntu(){
 sudo apt-get install -y ruby-full
 }
 
+install_gitlab_repo(){
+local dir=/opt/gitlab-ci-runner
+sudo mkdir -p $dir
+cd $dir
+curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
+cd gitlab-ci-runner.git
+sudo bundle install --deployment
+}
+
+
 mute install_ruby_ubuntu
 #mute ruby20
 install_bundler #+mute extra docs
 type bundler
+install_gitlab_repo
