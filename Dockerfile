@@ -7,7 +7,7 @@ ENV dir_ssh '/root'
 ################################################ APT-GET
 RUN echo IMAGINE APT-GET UPDATE..
 RUN apt-get -y update 1>/dev/null
-RUN apt-get -y install sudo curl #required by the step: apt
+RUN apt-get -y install sudo  #required by the step: apt
 ################################################ TRAVIS STEPS
 ADD . /docker
 RUN chmod +x /docker/travis.sh
@@ -17,8 +17,6 @@ RUN  /docker/travis.sh
 RUN mkdir -p $dir_ssh/.ssh
 RUN touch $dir_ssh/.ssh/known_hosts
 ################################################ INSTALL REPO: GITLAB-CI-RUNNER 
-RUN curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
-RUN cd gitlab-ci-runner.git && sudo bundle install --deployment
 WORKDIR /gitlab-ci-runner.git
 ################################################ HOOK: ON_IMAGE_RESTART: execute the user's custom script
 # When the image is started add the remote server key, set up the runner and run it
