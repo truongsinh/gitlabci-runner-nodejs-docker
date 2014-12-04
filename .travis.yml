@@ -9,6 +9,9 @@ cache:
   - apt
   - npm
   - bundler
+  - vendor/bundle
+  - npm_modules
+  - /tmp
   
 script:
   - chmod u+x travis.sh
