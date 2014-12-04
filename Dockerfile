@@ -7,7 +7,7 @@ ENV dir_ssh '/root'
 ################################################ APT-GET
 RUN echo IMAGINE APT-GET UPDATE..
 RUN apt-get -y update 1>/dev/null
-RUN apt-get install sudo  #required by the step: apt
+RUN apt-get -y install sudo curl #required by the step: apt
 ################################################ TRAVIS STEPS
 ADD . /docker
 RUN chmod +x /docker/travis.sh
@@ -17,7 +17,6 @@ RUN  /docker/travis.sh
 RUN mkdir -p $dir_ssh/.ssh
 RUN touch $dir_ssh/.ssh/known_hosts
 ################################################ INSTALL REPO: GITLAB-CI-RUNNER 
-RUN apt-get install curl
 RUN curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
 RUN cd gitlab-ci-runner.git && bundle install --deployment
 
