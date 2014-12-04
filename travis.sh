@@ -3,6 +3,7 @@ trap trap_err ERR
 set -u
 
 trap_err(){
+  echo $FUNCNAME
   exit 1
 }
 
