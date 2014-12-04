@@ -23,7 +23,7 @@ CMD /usr/sbin/runsvdir-start
 ADD . /docker
 #PERMIT
 #RUN source config.cfg
-RUN chmod +x *.sh /docker/install -R 
+RUN chmod +x /docker/install/*.sh
 #INSTALL SERVICES
 RUN bash -c  /docker/install/apt.sh
 RUN bash -c  /docker/install/mean.sh
