@@ -8,10 +8,13 @@ RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 ###################################### ####################################### packages
 ADD . /docker
 
+CMD /usr/sbin/runsvdir-start
 ############################################### install stuff we can test using travis.ci
 RUN chmod +x /docker/travis.sh
 RUN  /docker/travis.sh
 ################################################ GITLAB RUNNER CODE GOES HERE
+ADD sv /etc/service 
+
 # Set an utf-8 locale
 #LANG="en_US.UTF-8"
 
