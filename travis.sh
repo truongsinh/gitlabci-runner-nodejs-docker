@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+pushd `dirname $0` >/dev/null
+
+
+
 trap trap_err ERR
 set -u
 
@@ -7,19 +11,18 @@ trap_err(){
   exit 1
 }
 
-pushd `dirname $0` >/dev/null
 
 #INSTALL SERVICES
-chmod u+x ./install/*.sh
-source ./config.cfg
+chmod u+x install/*.sh
+source config.cfg
 commander 'echo nicer output is comming'
 
 #install ubuntu packages
-commander ./install/apt.sh 
+while read line;do
+  test -n "$line" || break
+  commander install/${line}.sh 
+done < <( cat list.txt )
 
-commander ./install/mean.sh
-commander ./install/mongo.sh
-commander ./install/ruby.sh
-commander ./install/ssh.sh
+
 
 popd >/dev/null
