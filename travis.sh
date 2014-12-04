@@ -15,12 +15,11 @@ source ./config.cfg
 commander 'echo nicer output is comming'
 
 #install ubuntu packages
-bash -c  ./install/apt.sh 
+commander ./install/apt.sh 
 
-
-bash -c  ./install/mean.sh
-bash -c  ./install/mongo.sh
-bash -c  ./install/ruby.sh
-bash -c  ./install/ssh.sh
+commander ./install/mean.sh
+commander ./install/mongo.sh
+commander ./install/ruby.sh
+commander ./install/ssh.sh
 
 popd >/dev/null
