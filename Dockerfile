@@ -1,10 +1,11 @@
-FROM ubuntu:12.04
-#FROM ubuntu:14.04
+FROM ubuntu:14.04
+#FROM ubuntu:12.04
 
 
 
 ##################################### ENV VARS
 ENV DEBIAN_FRONTEND noninteractive
+
 ###################################### ###################################### source.list
 RUN echo 'deb http://il.archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list && \
     echo 'deb http://il.archive.ubuntu.com/ubuntu precise-updates main universe' >> /etc/apt/sources.list
@@ -21,6 +22,7 @@ CMD /usr/sbin/runsvdir-start
 #CP
 ADD . /docker
 #PERMIT
+#RUN source config.cfg
 RUN chmod +x /docker/install/mean.sh
 RUN chmod +x /docker/install/mongo.sh
 RUN chmod +x /docker/install/ssh.sh
