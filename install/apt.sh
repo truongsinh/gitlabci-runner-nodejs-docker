@@ -4,8 +4,8 @@
 
 
 export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get upgrade
+apt-get -y update
+apt-get -y upgrade
 
 export list_apt="wget \
   curl \
@@ -37,4 +37,4 @@ export list_apt="wget \
 
 #Update your packages and install the ones that are needed to compile Ruby
 #apt-get install -y curl libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libssl-dev patch build-essential zlib1g-dev openssh-server libyaml-dev libicu-dev
-sudo apt-get install $list_apt
+sudo apt-get install -y $list_apt
