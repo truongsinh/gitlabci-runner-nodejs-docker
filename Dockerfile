@@ -1,35 +1,28 @@
 FROM ubuntu:12.04
 #FROM ubuntu:12.04
-##################################### ENV VARS
+################################################ ENV_VARS
 ENV DEBIAN_FRONTEND noninteractive
 ENV MODE_DEBUG false
-###################################### avoid warning: upstart (restarting deamons)
-###################################### ####################################### packages
+ENV dir_ssh=/root
+################################################ APT-GET
 ADD . /docker
 RUN echo IMAGINE APT-GET UPDATE..
 RUN apt-get -y update 1>/dev/null
-
-#RUN apt-get -y upgrade #TAKES A LIFE TIME
-
-RUN apt-get install sudo
-############################################### install stuff we can test using travis.ci
+RUN apt-get install sudo #required by the step: 'apt'
+################################################ TRAVIS STEPS
 RUN chmod +x /docker/travis.sh
 RUN  /docker/travis.sh
-################################################ GITLAB RUNNER CODE GOES HERE
-
-# Set an utf-8 locale
-#LANG="en_US.UTF-8"
-
-
+################################################ SSH: HIDE IT THERE
 # Prepare a known host file for non-interactive ssh connections
-RUN mkdir -p /root/.ssh
-RUN touch /root/.ssh/known_hosts
+RUN mkdir -p $dir_ssh.ssh
+RUN touch $dir_ssh.ssh/known_hosts
 
-# Install the runner
+################################################ INSTALL REPO: GITLAB-CI-RUNNER 
 RUN curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
 RUN cd gitlab-ci-runner.git && bundle install --deployment
 
 WORKDIR /gitlab-ci-runner.git
 
+################################################ HOOK: ON_IMAGE_RESTART :: execute the user's custom script
 # When the image is started add the remote server key, set up the runner and run it
 CMD ssh-keyscan -H $GITLAB_SERVER_FQDN >> /root/.ssh/known_hosts && bundle exec ./bin/setup_and_run
