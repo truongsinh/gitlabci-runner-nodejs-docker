@@ -6,3 +6,10 @@
 
   chmod u+x ./install/ssh.sh
  ./install/ssh.sh
+
+  chmod u+x ./install/apt.sh
+ ./install/apt.sh
+
+
+  chmod u+x ./install/ruby.sh
+ ./install/ruby.sh
