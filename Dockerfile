@@ -5,18 +5,17 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV MODE_DEBUG false
 ENV dir_ssh '/root'
 ################################################ APT-GET
-ADD . /docker
 RUN echo IMAGINE APT-GET UPDATE..
 RUN apt-get -y update 1>/dev/null
 RUN apt-get install sudo  #required by the step: apt
 ################################################ TRAVIS STEPS
+ADD . /docker
 RUN chmod +x /docker/travis.sh
 RUN  /docker/travis.sh
 ################################################ SSH: CONFIG
 # Prepare a known host file for non-interactive ssh connections
 RUN mkdir -p $dir_ssh/.ssh
 RUN touch $dir_ssh/.ssh/known_hosts
-
 ################################################ INSTALL REPO: GITLAB-CI-RUNNER 
 RUN apt-get install curl
 RUN curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
