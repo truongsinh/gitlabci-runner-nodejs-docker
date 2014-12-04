@@ -8,7 +8,7 @@ ENV MODE_DEBUG false
 ADD . /docker
 
 RUN apt-get -y update
-RUN apt-get -y upgrade
+#RUN apt-get -y upgrade #TAKES A LIFE TIME
 
 RUN apt-get install sudo
 ############################################### install stuff we can test using travis.ci
