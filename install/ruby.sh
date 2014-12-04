@@ -68,7 +68,7 @@ install_gitlab_repo(){
 local dir=/opt/gitlab-ci-runner
 sudo mkdir -p $dir
 cd $dir
-curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
+curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | sudo tar xz
 cd gitlab-ci-runner.git
 sudo bundle install --deployment
 }
