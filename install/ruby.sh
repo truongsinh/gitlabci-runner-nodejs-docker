@@ -60,10 +60,11 @@ sudo gem install bundler
 }
 install_ruby_ubuntu(){
 #https://www.ruby-lang.org/en/installation/
-sudo apt-get install -y ruby-full
+sudo apt-get install -y ruby-full curl
 }
 
 install_gitlab_repo(){
+#NEEDED: curl
 local dir=/opt/gitlab-ci-runner
 sudo mkdir -p $dir
 cd $dir
