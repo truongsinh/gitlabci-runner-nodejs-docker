@@ -1,3 +1,8 @@
+###################################### ###################################### source.list
+#RUN echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe" > /etc/apt/sources.list && \
+#    echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc)-updates main universe" >> /etc/apt/sources.list
+
+
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get upgrade
