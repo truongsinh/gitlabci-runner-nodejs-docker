@@ -12,7 +12,7 @@ steps(){
 #install ubuntu packages
 while read line;do
   test -n "$line" || break
-  commander install/${line}.sh 
+   { set -e; commander install/${line}.sh; } 
 done < <( cat list.txt )
 }
 
