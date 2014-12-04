@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:12.04
 #FROM ubuntu:12.04
 ##################################### ENV VARS
 ENV DEBIAN_FRONTEND noninteractive
@@ -18,16 +18,7 @@ ADD sv /etc/service
 # Set an utf-8 locale
 #LANG="en_US.UTF-8"
 
-################################################################################### FIX LOCALS
-# Set the locale
-RUN locale-gen en_US.UTF-8  
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8  
-#RUN echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
-#RUN locale-gen en_US.UTF-8
-#RUN update-locale LANG=en_US.UTF-8
-###################################################################################
+
 # Prepare a known host file for non-interactive ssh connections
 RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/known_hosts
