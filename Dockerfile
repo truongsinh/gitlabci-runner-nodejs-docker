@@ -2,6 +2,7 @@ FROM ubuntu:14.04
 #FROM ubuntu:12.04
 ##################################### ENV VARS
 ENV DEBIAN_FRONTEND noninteractive
+ENV MODE_DEBUG false
 ###################################### avoid warning: upstart (restarting deamons)
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 ###################################### ####################################### packages
