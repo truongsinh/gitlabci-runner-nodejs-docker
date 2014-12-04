@@ -5,9 +5,6 @@ FROM ubuntu:14.04
 
 ##################################### ENV VARS
 ENV DEBIAN_FRONTEND noninteractive
-###################################### ###################################### source.list
-#RUN echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe" > /etc/apt/sources.list && \
-#    echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc)-updates main universe" >> /etc/apt/sources.list
 
 RUN apt-get update
 ###################################### avoid warning: upstart (restarting deamons)
@@ -20,6 +17,8 @@ RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 ######################################## ####################################### install meanio prerequisites 
 #CP
 ADD . /docker
+RUN source /docker/config.cfg
+RUN commander 'echo nicer output is comming'
 #PERMIT
 #RUN source config.cfg
 RUN chmod +x /docker/install/travis.sh
