@@ -19,9 +19,7 @@ RUN touch $dir_ssh/.ssh/known_hosts
 ################################################ INSTALL REPO: GITLAB-CI-RUNNER 
 RUN curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
 RUN cd gitlab-ci-runner.git && bundle install --deployment
-
 WORKDIR /gitlab-ci-runner.git
-
 ################################################ HOOK: ON_IMAGE_RESTART: execute the user's custom script
 # When the image is started add the remote server key, set up the runner and run it
 CMD ssh-keyscan -H $GITLAB_SERVER_FQDN >> /root/.ssh/known_hosts && bundle exec ./bin/setup_and_run
