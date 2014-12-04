@@ -39,6 +39,7 @@ install_ruby_ubuntu(){
   #https://www.ruby-lang.org/en/installation/
    sudo apt-get install ruby-full
 }
-install_ruby_ubuntu
+
+mute install_ruby_ubuntu
 #mute ruby20
 mute install_bundler #+mute extra docs
