@@ -12,7 +12,9 @@ RUN chmod +x /docker/travis.sh
 RUN  /docker/travis.sh
 ################################################ GITLAB RUNNER CODE GOES HERE
 # Set an utf-8 locale
-RUN echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/default/locale
+#LANG="en_US.UTF-8"
+
+#RUN echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
 RUN locale-gen en_US.UTF-8
 RUN update-locale LANG=en_US.UTF-8
 
