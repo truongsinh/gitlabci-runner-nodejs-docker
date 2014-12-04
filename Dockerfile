@@ -17,7 +17,7 @@ RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 ###################################### ####################################### packages
 
 ######################################## Runit
-CMD /usr/sbin/runsvdir-start
+#CMD /usr/sbin/runsvdir-start
 ######################################## ####################################### install meanio prerequisites 
 #CP
 ADD . /docker
@@ -31,7 +31,7 @@ RUN bash -c  /docker/install/mongo.sh
 RUN bash -c  /docker/install/ruby.sh
 RUN bash -c  /docker/install/ssh.sh
 ###############################################################################Add runit services
-ADD sv /etc/service 
+#ADD sv /etc/service 
 #########################################               ######################################
 #RUN bash -c /docker/run.sh
 #RUN bash -c /docker/test.sh
