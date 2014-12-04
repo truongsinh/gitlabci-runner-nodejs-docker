@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+
 #INSTALL SERVICES
 chmod u+x ./install/*.sh
 source ./config.cfg
