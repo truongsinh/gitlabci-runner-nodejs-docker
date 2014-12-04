@@ -7,6 +7,9 @@ ENV MODE_DEBUG false
 ###################################### ####################################### packages
 ADD . /docker
 
+RUN apt-get -y update
+RUN apt-get -y upgrade
+
 RUN apt-get install sudo
 ############################################### install stuff we can test using travis.ci
 RUN chmod +x /docker/travis.sh
