@@ -2,8 +2,11 @@
 RUN echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe" > /etc/apt/sources.list && \
     echo "deb http://il.archive.ubuntu.com/ubuntu $(lsb_release -sc)-updates main universe" >> /etc/apt/sources.list
 
+echo "DEBIAN_FRONTEND:  $DEBIAN_FRONTEND"
+export DEBIAN_FRONTEND=noninteractive
+echo "DEBIAN_FRONTEND:  $DEBIAN_FRONTEND"
 
-#export DEBIAN_FRONTEND=noninteractive
+
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
