@@ -1,21 +1,15 @@
 set -u
+$cmd_trap_err
 #set -e
 # NOTE : Permission of myApp is 777
 set_env1(){
-  export dir_myApp="/opt/mean1"
-  export dir_nodejs="/opt/nodejs"
-
-  mkdir1 $dir_myApp
+  mkdir1 $dir_my_app
   mkdir1 $dir_nodejs
-
   export ver='0.9.3'
 }
 
 
-mkdir1(){
-  local dir="$1" 
-  test -d $dir || { sudo mkdir -p $dir; sudo chmod 777 $dir;  }
-}
+
 
 
 node1(){
@@ -35,8 +29,9 @@ sudo npm install -g mean-cli@${ver}
 }
 
 init1(){
-cd $dir_myApp
-mean init myApp
+cd $path_my_app
+mean init $APP_NAME
+ensure test -d $dir_my_app
 }
 
 after(){
