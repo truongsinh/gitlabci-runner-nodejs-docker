@@ -5,11 +5,7 @@ $cmd_trap_err
 set_env1(){
   mkdir1 $dir_my_app
   mkdir1 $dir_nodejs
-  export ver='0.9.3'
 }
-
-
-
 
 
 node1(){
@@ -25,7 +21,7 @@ node1(){
 npm1(){
 sudo npm update -g npm
 sudo npm install -g grunt-cli bower
-sudo npm install -g mean-cli@${ver}
+sudo npm install -g mean-cli@${VER_MEAN_CLI}
 }
 
 init1(){
