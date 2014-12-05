@@ -30,17 +30,18 @@ mean init $APP_NAME
 ensure test -d $dir_my_app
 }
 
-after(){
-cd $dir_myApp/myApp; 
-sudo  npm install -g
-sudo  npm link
-#grunt test
-}
+
 
 before(){
    node1
   npm1
   init1
+}
+after(){
+cd $dir_my_app; 
+sudo  npm install -g
+sudo  npm link
+#grunt test
 }
 
 
