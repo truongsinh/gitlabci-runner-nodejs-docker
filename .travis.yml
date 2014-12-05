@@ -12,6 +12,7 @@ cache:
   - vendor/bundle
   - npm_modules
   - /tmp
+  - /opt
   
 script:
   - sudo apt-get -y update
