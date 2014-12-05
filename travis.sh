@@ -7,7 +7,7 @@ act=$1
 
 set_env(){
 source config.cfg
-trap trap_err ERR
+
 chmod u+x install/*.sh
 }
 
@@ -16,7 +16,7 @@ step(){
 local act=$1
 while read line;do
   test -n "$line" || break
-   { set -e; commander install/${line}.sh $act; } 
+   { $cmd_trap_err; commander install/${line}.sh $act; } 
 done < <( cat list.txt )
 }
 
