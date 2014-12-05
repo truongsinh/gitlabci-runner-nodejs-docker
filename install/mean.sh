@@ -1,12 +1,7 @@
 set -u
 #set -e
 # NOTE : Permission of myApp is 777
-mkdir1(){
-  local dir="$1" 
-  test -d $dir || { sudo mkdir -p $dir; sudo chmod 777 $dir;  }
-}
-
-set_env(){
+set_env1(){
   export dir_myApp="/opt/mean1"
   export dir_nodejs="/opt/nodejs"
 
@@ -15,6 +10,13 @@ set_env(){
 
   export ver='0.9.3'
 }
+
+
+mkdir1(){
+  local dir="$1" 
+  test -d $dir || { sudo mkdir -p $dir; sudo chmod 777 $dir;  }
+}
+
 
 node1(){
   local dir=$dir_nodejs
@@ -55,7 +57,7 @@ before(){
 #eval "$cmd_start" 
 
 install(){
-set_env
+set_env1
 before
 after
 }
