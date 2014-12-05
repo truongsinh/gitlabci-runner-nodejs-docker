@@ -7,7 +7,7 @@ act=$1
 
 set_env(){
 source config.cfg
-
+set_mode
 chmod u+x install/*.sh
 }
 
