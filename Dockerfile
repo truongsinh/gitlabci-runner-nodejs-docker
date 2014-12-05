@@ -10,6 +10,8 @@ RUN apt-get -y update 1>/dev/null
 RUN apt-get -y install sudo  #who needs it? DOCKER=YES TRAVIS=NO
 ################################################ TRAVIS STEPS
 ADD . /docker
+RUN chmod +x /docker/once.sh
+RUN  /docker/once.sh
 RUN chmod +x /docker/travis.sh
 RUN  /docker/travis.sh install
 ################################################ SSH: CONFIG
