@@ -1,5 +1,5 @@
 set -u
-set -e
+#set -e
 # NOTE : Permission of myApp is 777
 mkdir1(){
   local dir="$1" 
