@@ -8,15 +8,18 @@ trap trap_err ERR
 chmod u+x install/*.sh
 }
 
-steps(){
+step(){
 #install ubuntu packages
+local act=$1
 while read line;do
   test -n "$line" || break
-   { set -e; commander install/${line}.sh; } 
+   { set -e; commander install/${line}.sh; $act } 
 done < <( cat list.txt )
 }
 
 set_env
-steps
+step install
+step config
+step test
 
 popd >/dev/null
