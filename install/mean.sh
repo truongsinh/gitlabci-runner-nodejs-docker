@@ -53,6 +53,17 @@ before(){
 
 #cmd_start="${1:-before}" 
 #eval "$cmd_start" 
+
+install(){
 set_env
 before
 after
+}
+config(){
+  echo
+}
+test(){
+  echo
+}
+
+commander $@
