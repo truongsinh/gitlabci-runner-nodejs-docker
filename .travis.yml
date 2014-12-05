@@ -1,7 +1,10 @@
 language: ruby
 #node_js
 #services: mongodb
-
+env:
+  global:
+    - MODE_DEBUG=false 
+    
 matrix:
   fast_finish: true
   
