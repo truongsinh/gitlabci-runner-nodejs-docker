@@ -16,7 +16,7 @@ step(){
 local act=$1
 while read line;do
   test -n "$line" || break
-   { set -e; commander install/${line}.sh $act } 
+   { set -e; commander install/${line}.sh $act; } 
 done < <( cat list.txt )
 }
 
