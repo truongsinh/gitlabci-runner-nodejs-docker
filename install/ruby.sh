@@ -77,9 +77,18 @@ ensure_bundler_exist(){
   type bundler
 }
 
-mute install_ruby_ubuntu
-#mute ruby20
-mute travis_only
+
+install(){
+#mute install_ruby_ubuntu
+ruby20
+#mute travis_only
 install_bundler
 ensure_bundler_exist
 install_gitlab_repo
+}
+config(){
+  echo
+}
+test(){
+  echo
+}
