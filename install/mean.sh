@@ -11,10 +11,11 @@ set_env1(){
 node1(){
   local dir=$dir_nodejs
   
-  cd $dir
+ # cd $dir
+  cd /tmp
   curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
-  mv $dir/node* $dir/node && \
-    sudo ln -s $dir/node/bin/node /usr/local/bin/node && \
+  mv /tmp/node* $dir_nodejs
+    sudo ln -s $dir/node/bin/node /usr/local/bin/node
     sudo ln -s $dir/node/bin/npm /usr/local/bin/npm
 }
 
