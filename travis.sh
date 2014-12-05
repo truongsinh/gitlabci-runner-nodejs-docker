@@ -2,6 +2,9 @@
 pushd `dirname $0` >/dev/null
 set -u
 
+act=$1
+
+
 set_env(){
 source config.cfg
 trap trap_err ERR
@@ -13,13 +16,14 @@ step(){
 local act=$1
 while read line;do
   test -n "$line" || break
-   { set -e; commander install/${line}.sh; $act } 
+   { set -e; commander install/${line}.sh $act } 
 done < <( cat list.txt )
 }
 
 set_env
-step install
-step config
-step test
+step $act
+#install
+#step config
+#step test
 
 popd >/dev/null
