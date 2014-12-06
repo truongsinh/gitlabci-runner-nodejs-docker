@@ -7,7 +7,9 @@ act=$1
 
 set_env(){
 source config.cfg
+############################################## decide: MODE_DEBUG
 set_mode
+##############################################
 chmod u+x install/*.sh
 }
 
