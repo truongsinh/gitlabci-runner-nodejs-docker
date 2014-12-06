@@ -2,19 +2,18 @@ language: ruby
 #node_js
 #services: mongodb
 env:
+  - RUN=mean
+  - RUN=ruby
+  - RUN=mongo
+  - RUN=apt
+  - RUN=ssh
+  - RUN=all
+  #  fast_finish: true
   global:
     - MODE_DEBUG=false 
   matrix:
-      - RUN=mean
-      - RUN=ruby
-      - RUN=mongo
-      - RUN=apt
-      - RUN=ssh
-      - RUN=all
-    fast_finish: true
     allow_failures:
-      - RUN="test_err"
-
+      - env: RUN="test_err"
   
         
       
