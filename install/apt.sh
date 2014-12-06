@@ -1,6 +1,6 @@
 #must install package sudo on Dockerfile
 
-install(){}{
+install(){
 while read line;do
 sudo apt-get install $line
 done < <( cat <<START
@@ -8,7 +8,6 @@ cowsay
 fortune-mod
 START
 )
-
 }
 
 config(){
