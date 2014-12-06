@@ -4,7 +4,9 @@ language: ruby
 env:
   global:
     - MODE_DEBUG=false 
-  matrix:
+
+
+matrix:
     allow_failures:
     - RUN=test_err
     fast_finish:
