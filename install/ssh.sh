@@ -6,7 +6,7 @@ sudo  apt-get install -y openssh-server
 
 }
 
-config1(){
+config(){
 sudo mkdir -p /var/run/sshd 
 
 sudo su root <<START
