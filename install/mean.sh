@@ -32,7 +32,7 @@ before(){
   npm1
 }
 
-after(){
+scaffold(){
  #grunt test
  cd $path_my_app
  mean init $APP_NAME
@@ -48,17 +48,16 @@ after(){
 install(){
 set_env
 before
-
-
 }
+
 config(){
   #env | grep opt
-after
+scaffold
 }
-test(){
-     ls $dir_my_app
 
+test(){
   ensure test -d $dir_my_app
+  ls $dir_my_app
   cd $dir_my_app
   ( grunt test ) || { trace imagine all tests are passing!; }
 }
