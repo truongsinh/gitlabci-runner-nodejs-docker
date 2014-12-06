@@ -7,6 +7,9 @@ env:
     
 matrix:
   fast_finish: true
+  include:
+    - run: "mean"
+    - run: "test_err"
   
 cache:
   - apt
