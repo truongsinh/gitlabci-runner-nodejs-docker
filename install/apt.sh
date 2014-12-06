@@ -7,7 +7,8 @@ while read line;do
 
 sudo apt-get install -y $line
 done < <( cat <<START
-cowsay 
+cowsay
+fortune-mod
 START
 )
 }
