@@ -19,8 +19,8 @@ step(){
  set -e
  set -u
  mute install/${line}.sh install;
- mute install/${line}.sh config;  
- mute install/${line}.sh test;  
+ commander install/${line}.sh config;  
+ commander install/${line}.sh test;  
 }
 
 steps(){
