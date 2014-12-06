@@ -2,15 +2,9 @@ language: ruby
 #node_js
 #services: mongodb
 env:
-
   global:
     - MODE_DEBUG=false 
   matrix:
-    rvm:
-      - 1.8.7
-      - 1.9.2
-      - 1.9.3
-    env:
       - RUN="mean"
       - RUN="test_err"
       - RUN=mean
