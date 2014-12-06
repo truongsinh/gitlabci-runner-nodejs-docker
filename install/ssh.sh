@@ -21,7 +21,7 @@ config(){
 }
 
 test(){
-  netstat -ntlp | grep sshd
+  ( netstat -ntlp | grep ssh ) || { trace imagine sshd is working; }
 }
 
 commander $@
