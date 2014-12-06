@@ -1,11 +1,12 @@
+fix_locals
+fix_upstart
 apt
 mean
 ruby
 ssh
 mongo
 
-fix_locals
-fix_upstart
+
 apt
 
 
