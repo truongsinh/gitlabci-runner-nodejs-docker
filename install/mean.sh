@@ -55,10 +55,10 @@ before
 after
 }
 config(){
-  echo
+  env | grep opt
 }
 test(){
-  echo
+  ls $dir_my_app
 }
 
 commander $@
