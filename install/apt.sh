@@ -8,11 +8,13 @@ START
 }
 
 config(){
-  echo
+  which cowsay
+  whereis cowsay
 }
 
 test(){
   echo
+  cowsay $(fortune -s)
 }
 
 commander $@
