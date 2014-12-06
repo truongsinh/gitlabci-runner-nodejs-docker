@@ -22,7 +22,6 @@ step(){
  mute install/${line}.sh install;
  commander install/${line}.sh config;  
  commander install/${line}.sh test;  
- print_line
 }
 
 steps(){
