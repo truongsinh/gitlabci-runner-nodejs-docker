@@ -3,7 +3,7 @@
 #set -e
 # NOTE : Permission of myApp is 777
 set_env(){
-  mkdir1 $dir_my_app
+ # mkdir1 $dir_my_app
   mkdir1 $dir_nodejs
 }
 
@@ -27,7 +27,6 @@ sudo npm install -g mean-cli@${VER_MEAN_CLI}
 init1(){
 cd $path_my_app
 mean init $APP_NAME
-ensure test -d $dir_my_app
 }
 
 
@@ -35,7 +34,7 @@ ensure test -d $dir_my_app
 before(){
    node1
   npm1
-  init1
+  
 }
 after(){
 cd $dir_my_app; 
@@ -54,13 +53,14 @@ before
 after
 }
 config(){
-  env | grep opt
+  #env | grep opt
     ls $dir_my_app
-
+init1
 }
 test(){
-  cd $dir_my_app
-  ( grunt test ) || { trace imagine all tests are passing!; }
+  ensure test -d $dir_my_app
+  #cd $dir_my_app
+  #( grunt test ) || { trace imagine all tests are passing!; }
 }
 
 commander $@
