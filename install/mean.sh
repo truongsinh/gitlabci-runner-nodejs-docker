@@ -21,7 +21,8 @@ node1(){
 npm1(){
 sudo npm update -g npm
 sudo npm install -g grunt-cli bower
-sudo npm install -g mean-cli@${VER_MEAN_CLI}
+sudo npm install -g mean-cli
+#@${VER_MEAN_CLI}
 }
 
 
@@ -47,11 +48,12 @@ scaffold(){
 
 install(){
 set_env
-before
+
 }
 
 config(){
   #env | grep opt
+  before
 scaffold
 }
 
