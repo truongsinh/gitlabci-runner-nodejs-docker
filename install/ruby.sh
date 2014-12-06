@@ -93,3 +93,5 @@ config(){
 test(){
   ensure_bundler_exist
 }
+
+commander $@
