@@ -1,8 +1,8 @@
-set -u
-$cmd_trap_err
+
+
 #set -e
 # NOTE : Permission of myApp is 777
-set_env1(){
+set_env(){
   mkdir1 $dir_my_app
   mkdir1 $dir_nodejs
 }
@@ -49,7 +49,7 @@ sudo  npm link
 #eval "$cmd_start" 
 
 install(){
-set_env1
+set_env
 before
 after
 }
