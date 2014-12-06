@@ -18,7 +18,7 @@ step(){
 local act=$1
 while read line;do
   test -n "$line" || break
-  ( $cmd_trap_err; commander install/${line}.sh $act; ) || { print_error; exit 1; }
+  ( $cmd_trap_err; commander install/${line}.sh $act; ) #|| { print_error; exit 1; }
 done < <( cat list.txt )
 }
 
