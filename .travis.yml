@@ -11,11 +11,10 @@ env:
   - RUN=mean
   - RUN=all
   - RUN=test_err
-
-matrix:
-  allow_failures:
-      - env: RUN="test_err"
-  fast_finish: true
+  matrix:
+    allow_failures:
+        - env: RUN="test_err"
+    fast_finish: true
   
         
       
