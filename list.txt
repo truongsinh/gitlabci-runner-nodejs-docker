@@ -1,8 +1,8 @@
-
-test_err
-
 mean
 ruby
+mongo
+apt
+ssh
 
 fix_locals
 fix_upstart
@@ -12,3 +12,4 @@ apt
 mongo
 ssh
 
+test_err
