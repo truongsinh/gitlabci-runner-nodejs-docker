@@ -16,12 +16,12 @@ START
 config(){
   which cowsay
   whereis cowsay
+  which fortune
 }
 
 test(){
   echo
-  /usr/games/cowsay mu
-  #$(fortune -s)
+  /usr/games/cowsay $(fortune -s)
 }
 
 commander $@
