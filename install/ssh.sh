@@ -8,6 +8,7 @@ sudo  apt-get install -y openssh-server
 
 config(){
   trace ''
+  commmander sudo service sshd start
 #sudo mkdir -p /var/run/sshd 
 #echo 'root:root' | sudo tee chpasswd
 
