@@ -55,9 +55,11 @@ after
 }
 config(){
   env | grep opt
+    ls $dir_my_app
+
 }
 test(){
-  ls $dir_my_app
+  cd $dir_my_app
   ( grunt test ) || { trace imagine all tests are passing!; }
 }
 
