@@ -3,7 +3,6 @@ pushd `dirname $0` >/dev/null
 set -u
 
 RUN=${RUN:-all}
-act=$1
 
 
 set_env(){
@@ -17,7 +16,9 @@ chmod u+x install/*.sh
 step(){
   local line=$1
  set -e
- mute install/${line}.sh $act;  
+ mute install/${line}.sh install;
+ mute install/${line}.sh config;  
+ mute install/${line}.sh test;  
 }
 
 steps(){
