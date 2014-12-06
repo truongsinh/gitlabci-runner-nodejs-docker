@@ -1,8 +1,8 @@
-mean
-ruby
-mongo
 apt
+mongo
+mean
 ssh
+ruby
 
 fix_locals
 fix_upstart
