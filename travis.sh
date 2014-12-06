@@ -18,7 +18,8 @@ step(){
 local act=$1
 while read line;do
   test -n "$line" || break
-  ( mute install/${line}.sh $act; ) #|| { print_error; exit 1; }
+   set +e
+ mute install/${line}.sh $act;  
 done < <( cat list.txt )
 }
 
