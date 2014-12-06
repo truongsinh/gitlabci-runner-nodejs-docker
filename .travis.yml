@@ -5,10 +5,16 @@ env:
   global:
     - MODE_DEBUG=false 
   matrix:
- #   - CI_NODE_INDEX=0
     - RUN="mean"
     - RUN="test_err"
-  
+    - RUN=mean
+    - RUN=ruby
+    - RUN=mongo
+    - RUN=apt
+    - RUN=ssh
+    - RUN=all
+
+      
     
 cache:
   - apt
