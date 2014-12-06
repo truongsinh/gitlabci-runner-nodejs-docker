@@ -16,7 +16,7 @@ chmod u+x install/*.sh
 
 step(){
   local line=$1
-     set +e
+ set -e
  mute install/${line}.sh $act;  
 }
 
