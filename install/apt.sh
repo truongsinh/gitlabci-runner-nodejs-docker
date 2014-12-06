@@ -8,7 +8,6 @@ while read line;do
 sudo apt-get install -y $line
 done < <( cat <<START
 cowsay
-fortune-mod
 START
 )
 }
@@ -16,12 +15,11 @@ START
 config(){
   which cowsay
   whereis cowsay
-  which fortune
 }
 
 test(){
-  echo
-  /usr/games/cowsay $(fortune -s)
+  /usr/games/cowsay hi
+  #$(fortune -s)
 }
 
 commander $@
