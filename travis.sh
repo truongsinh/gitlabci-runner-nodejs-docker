@@ -18,9 +18,11 @@ step(){
   local line=$1
  set -e
  set -u
+ print_line
  mute install/${line}.sh install;
  commander install/${line}.sh config;  
  commander install/${line}.sh test;  
+ print_line
 }
 
 steps(){
