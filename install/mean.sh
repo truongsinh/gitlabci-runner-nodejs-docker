@@ -1,4 +1,4 @@
-
+set -u
 
 #set -e
 # NOTE : Permission of myApp is 777
