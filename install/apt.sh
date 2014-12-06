@@ -1,12 +1,13 @@
 #must install package sudo on Dockerfile
 
-install(){
+install1(){
 while read line;do
-apt-get search $line
+#apt-get search $line
+#fortune-mode
+
 sudo apt-get install $line
 done < <( cat <<START
 cowsay 
-fortune-mode
 START
 )
 }
@@ -18,7 +19,8 @@ config(){
 
 test(){
   echo
-  /usr/games/cowsay $(fortune -s)
+  /usr/games/cowsay mu
+  #$(fortune -s)
 }
 
 commander $@
