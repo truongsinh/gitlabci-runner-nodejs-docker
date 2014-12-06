@@ -1,8 +1,8 @@
 
-- [BUILD ERR](https://registry.hub.docker.com/u/brownman/runner2/builds_history/91918/)
+- [BUILD ERR](https://registry.hub.docker.com/u/brownman/nstall_config_test/builds_history/91918/)
 
-[![Build Status](https://travis-ci.org/brownman/runner2.svg?branch=master)](https://travis-ci.org/brownman/runner2)
-[![Circle CI](https://circleci.com/gh/brownman/runner2.svg?style=svg)](https://circleci.com/gh/brownman/runner2)
+[![Build Status](https://travis-ci.org/brownman/nstall_config_test.svg?branch=master)](https://travis-ci.org/brownman/nstall_config_test)
+[![Circle CI](https://circleci.com/gh/brownman/nstall_config_test.svg?style=svg)](https://circleci.com/gh/brownman/nstall_config_test)
 
 gitlabci-runner-nodejs-docker
 =============================
@@ -10,10 +10,9 @@ gitlabci-runner-nodejs-docker
 nodejs npm bower grunt-cli redis mongodb
 
 
-solution
+faster testing:
 ====
- use 1 docker container as the image !
- 
- use 1 docker container as the runner !
+ use 1 docker container as the base image: install packages + create dir-structure!
+ use 1 docker container to config/run/test !
  
  [link](http://dockerfile.github.io/#/ruby-runtime)
