@@ -4,11 +4,11 @@ language: ruby
 #  global:
 #    - MODE_DEBUG=false 
 env:
-  - RUN=mean
-  - RUN=ruby
-  - RUN=mongo
   - RUN=apt
   - RUN=ssh
+  - RUN=ruby
+  - RUN=mongo
+  - RUN=mean
   - RUN=all
   - RUN=test_err
 
