@@ -61,8 +61,8 @@ config(){
 }
 test(){
   ensure test -d $dir_my_app
-  #cd $dir_my_app
-  #( grunt test ) || { trace imagine all tests are passing!; }
+  cd $dir_my_app
+  ( grunt test ) || { trace imagine all tests are passing!; }
 }
 
 commander $@
