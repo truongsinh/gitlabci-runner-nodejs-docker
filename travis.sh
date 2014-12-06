@@ -2,6 +2,7 @@
 pushd `dirname $0` >/dev/null
 set -u
 
+RUN=${RUN:-all}
 act=$1
 
 
@@ -28,10 +29,10 @@ done < <( cat list.txt )
 }
 
 set_env
-if [ $run = all ];then
+if [ $RUN = all ];then
   steps
 else
-  step $run
+  step $RUN
 fi
 
 #install
