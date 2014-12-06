@@ -24,7 +24,7 @@ sudo npm install -g grunt-cli bower
 sudo npm install -g mean-cli@${VER_MEAN_CLI}
 }
 
-init1(){
+scaffold1(){
 cd $path_my_app
 mean init $APP_NAME
 }
@@ -37,6 +37,7 @@ before(){
   
 }
 after(){
+ 
 cd $dir_my_app; 
 sudo  npm install -g
 sudo  npm link
@@ -50,12 +51,13 @@ sudo  npm link
 install(){
 set_env
 before
+scaffold1
 after
 }
 config(){
   #env | grep opt
     ls $dir_my_app
-init1
+
 }
 test(){
   ensure test -d $dir_my_app
