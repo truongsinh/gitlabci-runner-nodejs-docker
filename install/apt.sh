@@ -2,10 +2,11 @@
 
 install(){
 while read line;do
+apt-get search $line
 sudo apt-get install $line
 done < <( cat <<START
 cowsay 
-fortune-mod
+fortune-mode
 START
 )
 }
@@ -17,7 +18,7 @@ config(){
 
 test(){
   echo
-  cowsay $(fortune -s)
+  /usr/games/cowsay $(fortune -s)
 }
 
 commander $@
