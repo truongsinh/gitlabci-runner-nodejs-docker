@@ -10,4 +10,18 @@ export LC_ALL=en_US.UTF-8
 #RUN update-locale LANG=en_US.UTF-8
 }
 
+
+
+
+install(){
 ubuntu1304
+}
+
+config(){
+  trace
+}
+
+test(){
+  trace
+}
+commander $@
