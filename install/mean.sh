@@ -58,6 +58,7 @@ config(){
 }
 test(){
   ls $dir_my_app
+  ( grunt test ) || { trace imagine all tests are passing!; }
 }
 
 commander $@
