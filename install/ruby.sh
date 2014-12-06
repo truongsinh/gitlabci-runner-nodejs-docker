@@ -65,14 +65,16 @@ sudo apt-get install -y ruby-full curl
 
 install_gitlab_repo(){
 #NEEDED: curl
-local dir=/opt/gitlab-ci-runner
-sudo mkdir -p $dir
-sudo chown 777 $dir #UN-SUDO
-cd $dir
+local dir=$dir_gitlab_ci_runner_repo
+mkdir1 $dir
+
+cd /tmp
 curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
-cd gitlab-ci-runner.git
+mv /tmp/gitlab-ci-runner.git $dir
+cd $dir
 bundle install --deployment
 }
+
 ensure_bundler_exist(){
   type bundler
 }
@@ -86,9 +88,7 @@ install_bundler
 
 }
 config(){
- 
-  
-install_gitlab_repo
+  install_gitlab_repo
 }
 test(){
   ensure_bundler_exist
