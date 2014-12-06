@@ -1,11 +1,11 @@
 #must install package sudo on Dockerfile
 
-install1(){
+install(){
 while read line;do
 #apt-get search $line
 #fortune-mode
 
-sudo apt-get install $line
+sudo apt-get install -y $line
 done < <( cat <<START
 cowsay 
 START
