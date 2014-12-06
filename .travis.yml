@@ -5,8 +5,10 @@ env:
   global:
     - MODE_DEBUG=false 
   matrix:
-      - RUN="mean"
+    allow_failures:
       - RUN="test_err"
+    fast_finish: 
+      - RUN="mean"
       - RUN=mean
       - RUN=ruby
       - RUN=mongo
