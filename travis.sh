@@ -14,17 +14,26 @@ chmod u+x install/*.sh
 }
 
 step(){
+  local line=$1
+     set +e
+ mute install/${line}.sh $act;  
+}
+
+steps(){
 #install ubuntu packages
-local act=$1
 while read line;do
   test -n "$line" || break
-   set +e
- mute install/${line}.sh $act;  
+step $line
 done < <( cat list.txt )
 }
 
 set_env
-step $act
+if [ $run = all ];then
+  steps
+else
+  step $run
+fi
+
 #install
 #step config
 #step test
