@@ -83,12 +83,13 @@ install(){
 ruby20
 #mute travis_only
 install_bundler
-ensure_bundler_exist
-install_gitlab_repo
+
 }
 config(){
-  echo
+ 
+  
+install_gitlab_repo
 }
 test(){
-  echo
+  ensure_bundler_exist
 }
