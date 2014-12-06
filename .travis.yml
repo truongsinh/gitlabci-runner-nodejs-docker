@@ -2,8 +2,14 @@ language: ruby
 #node_js
 #services: mongodb
 env:
-  global:
-    - MODE_DEBUG=false 
+  - RUN=mean
+  - RUN=ruby
+  - RUN=mongo
+  - RUN=apt
+  - RUN=ssh
+  - RUN=all
+#  global:
+#    - MODE_DEBUG=false 
 
 
 matrix:
