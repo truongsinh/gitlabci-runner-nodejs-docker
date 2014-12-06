@@ -1,8 +1,8 @@
 apt
-mongo
 mean
-ssh
 ruby
+ssh
+mongo
 
 fix_locals
 fix_upstart
