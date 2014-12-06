@@ -4,13 +4,12 @@ language: ruby
 env:
   global:
     - MODE_DEBUG=false 
-    
-matrix:
-  fast_finish: true
-  include:
-    - run: "mean"
-    - run: "test_err"
+  matrix:
+ #   - CI_NODE_INDEX=0
+    - RUN="mean"
+    - RUN="test_err"
   
+    
 cache:
   - apt
   - npm
