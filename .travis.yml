@@ -18,7 +18,7 @@ cache:
 #  - /opt
   
 script:
-  - sudo apt-get -y update 1>/devnull
+  - sudo apt-get -y update 1>/dev/null
   - chmod u+x once.sh
   - ./once.sh
   - chmod u+x travis.sh
