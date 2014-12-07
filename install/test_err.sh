@@ -17,10 +17,6 @@ install(){
   node1
 }
 
-
-
-npm1(){
-  
   
 config(){
   trace
