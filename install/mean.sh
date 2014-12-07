@@ -56,7 +56,7 @@ config(){
 trace
 }
 
-test(){
+test1(){
  # test -d $dir_my_app
  # ls $dir_my_app
  $cmd_caller
