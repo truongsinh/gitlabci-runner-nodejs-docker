@@ -22,8 +22,8 @@ env:
       
 cache:
   - apt
-  - npm
-  - bundler
+#  - npm
+#  - bundler
 #  - vendor/bundle
 #  - npm_modules
 #  - /tmp
