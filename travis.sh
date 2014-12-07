@@ -25,13 +25,13 @@ step(){
  mute install/${line}.sh install;
  
   print_title TEST_INSTALL
- mute install/${line}.sh test_install;
+ commander install/${line}.sh test_install;
  
   print_title CONFIG
  commander install/${line}.sh config;  
  
 print_title TEST_CONFIG
- mute install/${line}.sh test_config;
+ commander install/${line}.sh test_config;
 }
 
 steps(){
