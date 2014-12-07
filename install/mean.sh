@@ -59,7 +59,7 @@ scaffold
 }
 
 test(){
-  test -d $dir_my_app
+ # test -d $dir_my_app
  # ls $dir_my_app
  ls -l $dir_my_app/node_modules
   cd $dir_my_app
