@@ -20,8 +20,13 @@ config(){
 
 }
 
-test1(){
-  ( sudo netstat -ntlp | grep ssh ) || { trace imagine sshd is working; }
+test_install(){
+  trace
 }
+test_config(){
+    ( sudo netstat -ntlp | grep ssh ) || { trace imagine sshd is working; }
+
+}
+
 
 commander $@
