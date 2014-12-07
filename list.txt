@@ -1,8 +1,9 @@
 apt
-mean
 ruby
 ssh
 mongo
+
+mean
 
 fix_locals
 fix_upstart
