@@ -19,7 +19,8 @@ step(){
   local line=$1
  set -e
  set -u
- print_line
+ 
+print_func $line
  
  print_title INSTALL
  mute install/${line}.sh install;
