@@ -18,8 +18,6 @@ node1(){
   mv /tmp/node* $dir_nodejs
   ln -s $dir_nodejs/bin/node $PATH_BIN/node
   ln -s $dir_nodejs/bin/npm $PATH_BIN/npm
-
-
 }
 
 npm1(){
@@ -58,20 +56,19 @@ config(){
 trace
 }
 
-test2(){
+test_install(){
 ensure "test -L $PATH_BIN/npm"
 ensure "test -L $PATH_BIN/node"
 ensure which npm
 ensure whereis npm
-ensure npm
+#ensure npm
 #ensure sudo npm
 }
 
-test1(){
+test_config(){
  # test -d $dir_my_app
  # ls $dir_my_app
- $cmd_caller
- ls -l $dir_my_app/node_modules
+ ls -l $dir_my_app
  # cd $dir_my_app
  # ( grunt test  ) || { trace imagine all tests are passing!; }
 }
