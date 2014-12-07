@@ -9,7 +9,9 @@ set_env1(){
 
 node1(){
  # cd $dir
-  apt1 curl #install only if not-already installed
+ # apt1 curl 
+ sudo apt-get install -y curl
+ #install only if not-already installed
   cd /tmp
   curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
   mv /tmp/node* $dir_nodejs
@@ -46,14 +48,15 @@ scaffold(){
 #eval "$cmd_start" 
 
 install(){
-set_env1
-  node1
-  npm1
-  scaffold
+
 }
 
 config(){
   #env | grep opt
+  set_env1
+  node1
+  npm1
+  scaffold
 trace
 }
 
