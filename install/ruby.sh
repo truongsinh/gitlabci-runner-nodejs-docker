@@ -12,6 +12,7 @@ cd ruby-2.0.0-p353
 ./configure --prefix=$dir_base --disable-install-rdoc --disable-install-ri
 make
 make install
+#gem install bundler
 }
 
 ruby21(){
@@ -32,7 +33,8 @@ sudo  apt-get update -qq && \
 
 # don't install ruby rdocs or ri:
 install_bundler(){
-echo "gem: --no-rdoc --no-ri" | sudo tee /usr/local/etc/gemrc
+#echo "gem: --no-rdoc --no-ri" | sudo tee /usr/local/etc/gemrc
+echo "gem: --no-rdoc --no-ri" | tee $HOME/.gemrc 
 gem install bundler
 }
 
@@ -63,8 +65,8 @@ ruby20
 }
 
 config(){
- # install_bundler
-  install_gitlab_repo
+  trace install_bundler
+  trace install_gitlab_repo
 }
 test1(){
   ensure_bundler_exist
