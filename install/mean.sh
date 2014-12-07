@@ -14,8 +14,8 @@ node1(){
   cd /tmp
   curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
   mv /tmp/node* $dir_nodejs
-  sudo ln -s $dir_nodejs/bin/node /usr/local/bin/node
-  sudo ln -s $dir_nodejs/bin/npm /usr/local/bin/npm
+  sudo ln -s $dir_nodejs/bin/node $PATH_NODE/node
+  sudo ln -s $dir_nodejs/bin/npm $PATH_NODE/npm
 }
 
 npm1(){
