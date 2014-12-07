@@ -14,6 +14,7 @@ config(){
 }
 
 test(){
+  commander sleep 2
   ensure  'sudo netstat -ntlp | grep mongo'
 }
 
