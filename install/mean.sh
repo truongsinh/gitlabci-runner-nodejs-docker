@@ -4,6 +4,7 @@ set -u
 set_env1(){
  # mkdir1 $dir_my_app
   mkdir1 $dir_nodejs
+  SUDO=''
 }
 
 
@@ -17,21 +18,14 @@ node1(){
   mv /tmp/node* $dir_nodejs
   ln -s $dir_nodejs/bin/node $PATH_BIN/node
   ln -s $dir_nodejs/bin/npm $PATH_BIN/npm
-  
- ensure "test -L $PATH_BIN/npm"
-  ensure "test -L $PATH_BIN/node"
 
-ensure which npm
-ensure whereis npm
-ensure npm
-ensure sudo npm
 
 }
 
 npm1(){
-sudo npm update -g npm
-sudo npm install -g grunt-cli bower
-sudo npm install -g mean-cli@${VER_MEAN_CLI}
+$SUDO npm update -g npm
+$SUDO npm install -g grunt-cli bower
+$SUDO npm install -g mean-cli@${VER_MEAN_CLI}
 }
 
 
@@ -44,8 +38,8 @@ scaffold(){
  cd $path_my_app
  mean init $APP_NAME
  cd $dir_my_app; 
- sudo  npm install -g
- sudo  npm link
+ $SUDO  npm install -g
+ $SUDO  npm link
 }
 
 
@@ -62,7 +56,15 @@ config(){
   node1
   npm1
   scaffold
-trace
+}
+
+test2(){
+ensure "test -L $PATH_BIN/npm"
+ensure "test -L $PATH_BIN/node"
+ensure which npm
+ensure whereis npm
+ensure npm
+#ensure sudo npm
 }
 
 test1(){
