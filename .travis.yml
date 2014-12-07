@@ -1,4 +1,4 @@
-language: ruby
+language: python
 #node_js
 #services: mongodb
 global:
