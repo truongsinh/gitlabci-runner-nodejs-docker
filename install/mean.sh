@@ -47,15 +47,15 @@ scaffold(){
 #eval "$cmd_start" 
 
 install(){
-print_func
-}
-
-config(){
-  #env | grep opt
   set_env1
   node1
   npm1
   scaffold
+}
+
+config(){
+  #env | grep opt
+trace
 }
 
 test2(){
