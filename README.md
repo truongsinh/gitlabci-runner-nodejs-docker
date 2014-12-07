@@ -13,6 +13,7 @@ nodejs npm bower grunt-cli redis mongodb
 faster testing:
 ====
  use 1 docker container as the base image: install packages + create dir-structure!
+ 
  use 1 docker container to config/run/test !
  
  [link](http://dockerfile.github.io/#/ruby-runtime)
