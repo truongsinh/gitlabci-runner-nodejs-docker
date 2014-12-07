@@ -33,7 +33,7 @@ which cowsay
 whereis cowsay
 }
 
-test(){
+test1(){
 /usr/games/cowsay hi
 #$(fortune -s)
 }
