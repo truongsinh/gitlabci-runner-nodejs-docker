@@ -48,7 +48,7 @@ scaffold(){
 #eval "$cmd_start" 
 
 install(){
-
+print_func
 }
 
 config(){
