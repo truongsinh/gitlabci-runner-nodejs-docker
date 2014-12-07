@@ -1,8 +1,10 @@
 set -u
 set -e
+set -x
+
 #set -e
 # NOTE : Permission of myApp is 777
-set_env(){
+set_env1(){
  # mkdir1 $dir_my_app
   mkdir1 $dir_nodejs
 }
@@ -46,7 +48,7 @@ scaffold(){
 #eval "$cmd_start" 
 
 install(){
-set_env
+set_env1
 
 }
 
@@ -62,5 +64,6 @@ test(){
   cd $dir_my_app
   ( grunt test ) || { trace imagine all tests are passing!; }
 }
+
 
 commander $@
