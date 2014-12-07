@@ -58,7 +58,7 @@ ensure which bundler
 
 install(){
 #mute install_ruby_ubuntu
-ruby21
+ruby20
 #mute travis_only
 }
 
