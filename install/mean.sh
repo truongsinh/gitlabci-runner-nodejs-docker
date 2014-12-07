@@ -73,5 +73,7 @@ test_config(){
  # ( grunt test  ) || { trace imagine all tests are passing!; }
 }
 
-
+test_install(){
+  trace
+}
 commander $@
