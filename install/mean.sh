@@ -43,10 +43,9 @@ scaffold(){
 
 install(){
 set_env1
-  before
-scaffold
   node1
   npm1
+  scaffold
 }
 
 config(){
