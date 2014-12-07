@@ -13,7 +13,7 @@ config(){
     sudo mongod &>/dev/null &
 }
 
-test(){
+test1(){
   set +e
   while :;do
      commander  sleep 1
