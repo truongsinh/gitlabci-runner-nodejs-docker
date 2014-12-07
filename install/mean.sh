@@ -10,7 +10,7 @@ set_env1(){
 
 node1(){
  # cd $dir
-  sudo apt-get install curl
+  apt1 curl #install only if not-already installed
   cd /tmp
   curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
   mv /tmp/node* $dir_nodejs
@@ -27,10 +27,7 @@ sudo npm install -g mean-cli@${VER_MEAN_CLI}
 
 
 
-before(){
-  node1
-  npm1
-}
+
 
 scaffold(){
  #grunt test
@@ -49,6 +46,8 @@ install(){
 set_env1
   before
 scaffold
+  node1
+  npm1
 }
 
 config(){
