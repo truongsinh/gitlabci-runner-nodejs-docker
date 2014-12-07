@@ -1,8 +1,9 @@
 language: ruby
 #node_js
 #services: mongodb
-#  global:
-#    - MODE_DEBUG=false 
+global:
+    - MODE_DEBUG=false 
+    
 matrix:
   allow_failures:
       - env: RUN="test_err"
