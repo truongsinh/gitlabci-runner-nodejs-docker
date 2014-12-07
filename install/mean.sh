@@ -1,5 +1,5 @@
 set -u
-set -e
+
 # NOTE : Permission of myApp is 777
 set_env1(){
  # mkdir1 $dir_my_app
@@ -20,6 +20,11 @@ node1(){
   
  ensure "test -L $PATH_BIN/npm"
   ensure "test -L $PATH_BIN/node"
+
+ensure which npm
+ensure whereis npm
+ensure npm
+ensure sudo npm
 
 }
 
