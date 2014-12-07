@@ -20,7 +20,7 @@ config(){
 
 }
 
-test(){
+test1(){
   ( sudo netstat -ntlp | grep ssh ) || { trace imagine sshd is working; }
 }
 
