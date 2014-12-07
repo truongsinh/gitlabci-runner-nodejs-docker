@@ -9,6 +9,12 @@ gitlabci-runner-nodejs-docker
 
 nodejs npm bower grunt-cli redis mongodb
 
+docker tips:
+------
+- http://www.centurylinklabs.com/15-quick-docker-tips/
+- http://handsonwith.com/
+- https://coderwall.com/trending?search=%23docker
+- http://stackoverflow.com/tags
 
 faster testing:
 ====
