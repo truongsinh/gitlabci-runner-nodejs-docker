@@ -14,8 +14,12 @@ config(){
 }
 
 test(){
-  commander sleep 2
-  ensure  'sudo netstat -ntlp | grep mongo'
+  set +e
+  while :;do
+     commander  sleep 1
+     ( sudo netstat -ntlp | grep mongo ) && break 
+  done
+  return 0
 }
 
 commander $@
