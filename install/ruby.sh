@@ -1,4 +1,5 @@
 # https://gitlab.com/gitlab-org/gitlab-ci-runner/
+#https://gist.github.com/Gurpartap/ef78033f059cf593e4f0
 set -u
 
 ruby20(){
@@ -8,9 +9,23 @@ sudo apt-get install -y curl wget curl gcc libxml2-dev libxslt-dev libcurl4-open
 mkdir /tmp/ruby && cd /tmp/ruby
 curl --progress ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz | tar xz
 cd ruby-2.0.0-p353
-./configure --disable-install-rdoc
+./configure --prefix=$dir_base --disable-install-rdoc --disable-install-ri
 make
-sudo make install
+make install
+}
+
+ruby21(){
+sudo  apt-get update -qq && \
+    apt-get install -y make curl -qq && \
+    apt-get clean && \
+    curl -sSL "https://github.com/postmodern/ruby-install/archive/master.tar.gz" -o /tmp/ruby-install-master.tar.gz && \
+    cd /tmp && tar -zxvf ruby-install-master.tar.gz && \
+    cd /tmp/ruby-install-master && make install && \
+    apt-get update && \
+    echo "gem: --no-rdoc --no-ri" >> ~/.gemrc && \
+    ruby-install -i /usr/local/ ruby -- --disable-install-rdoc --disable-install-ri && \
+    gem update --system && \
+    gem install bundler
 }
 # Update your packages and install the ones that are needed to compile Ruby
 # Download Ruby and compile it
