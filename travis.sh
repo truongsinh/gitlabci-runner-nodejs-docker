@@ -30,11 +30,8 @@ step(){
   print_title CONFIG
  commander install/${line}.sh config;  
  
-   print_title TEST_CONFIG
+print_title TEST_CONFIG
  mute install/${line}.sh test_config;
- 
- print_title TEST
- commander install/${line}.sh test1;  
 }
 
 steps(){
