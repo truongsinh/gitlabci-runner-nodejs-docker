@@ -10,6 +10,7 @@ source config.cfg
 ############################################## decide: MODE_DEBUG
 set_mode
 init_cfg
+env1
 ##############################################
 chmod u+x install/*.sh
 }
