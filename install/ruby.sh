@@ -46,7 +46,7 @@ cd /tmp
 curl --silent -L https://gitlab.com/gitlab-org/gitlab-ci-runner/repository/archive.tar.gz | tar xz
 mv /tmp/gitlab-ci-runner.git $dir
 cd $dir
-bundle install --deployment
+( bundle install --deployment ) || {  trace error on using bundler; }
 }
 
 ensure_bundler_exist(){
@@ -63,7 +63,7 @@ ruby21
 }
 
 config(){
-  install_bundler
+ # install_bundler
   install_gitlab_repo
 }
 test1(){
