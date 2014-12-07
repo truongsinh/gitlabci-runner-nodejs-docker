@@ -1,6 +1,4 @@
 set -u
-set -e
-set -x
 
 #set -e
 # NOTE : Permission of myApp is 777
