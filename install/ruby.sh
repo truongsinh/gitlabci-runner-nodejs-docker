@@ -90,7 +90,7 @@ install_bundler
 config(){
   install_gitlab_repo
 }
-test(){
+test1(){
   ensure_bundler_exist
 }
 
