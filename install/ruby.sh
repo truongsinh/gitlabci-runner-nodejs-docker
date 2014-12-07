@@ -68,7 +68,12 @@ config(){
   trace install_bundler
   trace install_gitlab_repo
 }
-test1(){
+ 
+test_install(){
+  trace
+}
+test_config(){
+  trace
   ensure_bundler_exist
 }
 
