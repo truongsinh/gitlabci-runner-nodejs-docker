@@ -21,7 +21,10 @@ config(){
   trace
 }
 
-test1(){
+test_install(){
+  trace
+}
+test_config(){
   trace
 }
 commander $@
