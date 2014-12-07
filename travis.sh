@@ -21,7 +21,7 @@ step(){
  print_line
  mute install/${line}.sh install;
  commander install/${line}.sh config;  
- commander install/${line}.sh test;  
+ commander install/${line}.sh test1;  
 }
 
 steps(){
