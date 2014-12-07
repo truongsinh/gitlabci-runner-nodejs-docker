@@ -1,5 +1,6 @@
 # https://gitlab.com/gitlab-org/gitlab-ci-runner/
-
+set -u
+set -e
 # Update your packages and install the ones that are needed to compile Ruby
 # Download Ruby and compile it
 travis_only(){
@@ -65,7 +66,7 @@ sudo apt-get install -y ruby-full curl
 
 install_gitlab_repo(){
 #NEEDED: curl
-local dir=$dir_gitlab_ci_runner_repo
+local dir="$dir_gitlab_ci_runner_repo"
 mkdir1 $dir
 
 cd /tmp
@@ -84,10 +85,11 @@ install(){
 #mute install_ruby_ubuntu
 ruby20
 #mute travis_only
-install_bundler
+
 
 }
 config(){
+  install_bundler
   install_gitlab_repo
 }
 test1(){
