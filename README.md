@@ -1,5 +1,5 @@
 
-- [BUILD ERR](https://registry.hub.docker.com/u/brownman/install_config_test/builds_history/91918/)
+- [BUILD ERR](https://registry.hub.docker.com/u/brownman/install-config-test/builds_history/94705/)
 
 [![Build Status](https://travis-ci.org/brownman/install_config_test.svg?branch=master)](https://travis-ci.org/brownman/install_config_test)
 [![Circle CI](https://circleci.com/gh/brownman/install_config_test.svg?style=svg)](https://circleci.com/gh/brownman/install_config_test)
