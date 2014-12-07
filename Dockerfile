@@ -11,7 +11,8 @@ ENV TERM linux
 ################################################ APT-GET
 RUN echo IMAGINE APT-GET UPDATE..
 RUN apt-get -y update 1>/dev/null
-RUN apt-get -y install sudo  #who needs it? DOCKER=YES TRAVIS=NO
+RUN apt-get -y install sudo  
+#who needs it? DOCKER=YES TRAVIS=NO
 ################################################ TRAVIS STEPS
 ADD . /docker
 RUN chmod +x /docker/travis.sh
