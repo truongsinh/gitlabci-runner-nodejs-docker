@@ -1,26 +1,41 @@
 #must install package sudo on Dockerfile
-set -x
+#openssh-server sudo curl
 
-install(){
+ppa1(){
+sudo apt-get install python-software-properties
+sudo 	add-apt-repository -y ppa:git-core/ppa 
+sudo  apt-get -y update 
+}
+
+apt1(){
 while read line;do
-#apt-get search $line
-#fortune-mode
-
 sudo apt-get install -y $line
 done < <( cat <<START
 cowsay
+python-software-properties
+wget  net-tools pwgen
+logrotate supervisor
+unzip build-essential zlib1g-dev libyaml-dev libssl-dev libreadline-dev
+gcc make 
+libxml2-dev libxslt-dev libcurl4-openssl-dev libicu-dev libpq-dev git-core postfix 
 START
 )
 }
 
+
+install(){	
+ppa1
+apt1
+}
+
 config(){
-  which cowsay
-  whereis cowsay
+which cowsay
+whereis cowsay
 }
 
 test(){
-  /usr/games/cowsay hi
-  #$(fortune -s)
+/usr/games/cowsay hi
+#$(fortune -s)
 }
 
 commander $@
