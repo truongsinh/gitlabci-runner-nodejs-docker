@@ -1,8 +1,8 @@
-language: python
+language: c #cp creationix/nvm/.travis.yml language section 
 #node_js
 #services: mongodb
-global:
-    - MODE_DEBUG=false 
+#global:
+#    - MODE_DEBUG=false 
     
 matrix:
   allow_failures:
