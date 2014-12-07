@@ -21,7 +21,7 @@ step(){
  set -u
  print_line
  
- commander install/${line}.sh install;
+ mute install/${line}.sh install;
  commander install/${line}.sh config;  
  commander install/${line}.sh test1;  
 }
