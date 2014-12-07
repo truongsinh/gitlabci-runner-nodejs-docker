@@ -1,4 +1,5 @@
 #must install package sudo on Dockerfile
+set -x
 
 install(){
 while read line;do
