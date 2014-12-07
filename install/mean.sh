@@ -18,8 +18,8 @@ node1(){
   ln -s $dir_nodejs/bin/node $PATH_BIN/node
   ln -s $dir_nodejs/bin/npm $PATH_BIN/npm
   
- ensure "test -f $PATH_BIN/npm"
-  ensure "test -f $PATH_BIN/node"
+ ensure "test -L $PATH_BIN/npm"
+  ensure "test -L $PATH_BIN/node"
 
 }
 
