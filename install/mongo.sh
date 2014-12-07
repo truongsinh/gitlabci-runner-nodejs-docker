@@ -12,8 +12,10 @@ sudo  chown -R mongodb:mongodb /data
 config(){
     sudo mongod &>/dev/null &
 }
-
-test1(){
+test_install(){
+    trace
+}
+test_config(){
   set +e
   while :;do
      commander  sleep 1
@@ -21,5 +23,7 @@ test1(){
   done
   return 0
 }
-
+test_install(){
+  trace
+}
 commander $@
