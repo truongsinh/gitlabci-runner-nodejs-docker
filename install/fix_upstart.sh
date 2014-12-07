@@ -10,7 +10,7 @@ config(){
   trace
 }
 
-test(){
+test1(){
   trace
 }
 commander $@
