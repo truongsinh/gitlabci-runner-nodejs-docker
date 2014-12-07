@@ -1,9 +1,13 @@
+#common errors
+#https://github.com/phusion/baseimage-docker/issues/58 
+
+
 FROM ubuntu:14.04
 #FROM ubuntu:12.04
 ################################################ ENV_VARS
 ENV DEBIAN_FRONTEND noninteractive
 ENV MODE_DEBUG false
-
+ENV TERM linux
 ################################################ APT-GET
 RUN echo IMAGINE APT-GET UPDATE..
 RUN apt-get -y update 1>/dev/null
