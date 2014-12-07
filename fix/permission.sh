@@ -1,3 +1,6 @@
 
-RUN useradd docker && echo "docker:docker" | chpasswd && adduser docker sudo
-RUN mkdir -p /home/docker && chown -R docker:docker /home/docker
+sudo useradd docker
+echo "docker:docker" | chpasswd
+sudo adduser docker sudo
+sudo mkdir -p /home/docker
+sudo chown -R docker:docker /home/docker
