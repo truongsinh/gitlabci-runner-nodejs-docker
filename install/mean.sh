@@ -47,21 +47,21 @@ scaffold(){
 
 install(){
 set_env1
-
+  before
+scaffold
 }
 
 config(){
   #env | grep opt
-  before
-scaffold
+trace
 }
 
 test(){
  # test -d $dir_my_app
  # ls $dir_my_app
  ls -l $dir_my_app/node_modules
-  cd $dir_my_app
-  ( grunt test ) || { trace imagine all tests are passing!; }
+ # cd $dir_my_app
+ # ( grunt test  ) || { trace imagine all tests are passing!; }
 }
 
 
