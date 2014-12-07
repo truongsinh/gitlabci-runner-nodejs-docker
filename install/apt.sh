@@ -33,9 +33,11 @@ which cowsay
 whereis cowsay
 }
 
-test1(){
-/usr/games/cowsay hi
-#$(fortune -s)
+ 
+test_install(){
+  /usr/games/cowsay hi
 }
-
+test_config(){
+  trace
+}
 commander $@
