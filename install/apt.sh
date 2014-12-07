@@ -2,14 +2,14 @@
 #openssh-server sudo curl
 
 ppa1(){
-sudo apt-get install python-software-properties
+sudo apt-get install -y python-software-properties
 sudo 	add-apt-repository -y ppa:git-core/ppa 
 sudo  apt-get -y update 
 }
 
 apt1(){
 while read line;do
-sudo apt-get install -y $line
+commander "sudo apt-get install -y ${line}"
 done < <( cat <<START
 cowsay
 python-software-properties
