@@ -12,11 +12,15 @@ switch_user(){
   source config.cfg
  # ln -s ./travis.sh /tmp
     # /tmp/travis.sh
+    echo $RUN > /tmp/step_name
 
-  sudo su root - <<START
-  echo "whoami $(  whoami )"
-  toilet --metal $RUN
-  ./travis.sh $RUN
+  sudo su root <<START
+  step=$(cat /tmp/step_name)
+  whoami="whoami $(  whoami )"
+  toilet --metal $whoami
+  toilet --gay $step
+
+  ./travis.sh $step
 START
 }
 
