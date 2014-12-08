@@ -29,7 +29,10 @@ cache:
   - /tmp
 #  - /opt
 
-  
+before_install:
+  - chmod u+x bashism.sh
+  - ./bashism.sh
+
 script:
   - bash -c 'ls /tmp | grep node'
   - sudo apt-get -y update 1>/dev/null
@@ -40,8 +43,6 @@ after_success:
   - echo success
 
 after_failure:
-  - chmod u+x bashism.sh
-  - ./bashism.sh
-
+  - echo TRY AGAIN!
 #after_success:
 #  - sleep 5; curl 0.0.0.0:3000
