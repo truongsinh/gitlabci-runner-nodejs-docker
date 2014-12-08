@@ -16,11 +16,13 @@ chmod u+x install/*.sh
 }
 
 step(){
-  local line=$1
- set -e
- set -u
- 
+set -e
+set -u
+local line=$1
+
 print_func $line
+ exiting 0
+ 
  
  print_title INSTALL
  mute install/${line}.sh install;
