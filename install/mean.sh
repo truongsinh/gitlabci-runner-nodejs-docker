@@ -58,7 +58,6 @@ trace $SUDO  npm link
 #eval "$cmd_start" 
 
 install(){
-  set_env1
   node1
 
 }
@@ -91,4 +90,6 @@ trace ls -l $dir_my_app
 test_install(){
   trace
 }
+
+set_env1
 commander $@
