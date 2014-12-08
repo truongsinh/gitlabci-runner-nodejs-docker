@@ -1,4 +1,33 @@
+
 #http://www.centurylinklabs.com/15-quick-docker-tips/
+ip_of_container(){
+#Does a Docker container have its own IP address?
+#Yes. It is like a process with an internal IP address
+ip -4 -o addr show eth0
+#2:
+#eth0    inet 162.243.139.222/24
+docker run ubuntu ip -4 -o addr show eth0
+#149:
+#eth0    inet 172.17.0.43/16
+}
+
+cmd_vs_entrypoint(){
+CMD vs ENTRYPOINT instruction
+CMD arguments can be over-ridden:
+cat Dockerfile
+FROM ubuntu
+CMD ["echo"]
+ENTRYPOINT ["echo"]
+}
+
+cmd_vs_run(){
+RUN apt-get update
+RUN apt-get install softwares
+# docker run will run this command by default:
+CMD ["softwares"]
+}
+
+
 
 get_id(){
 ID=$(docker run ubuntu echo hello world)
