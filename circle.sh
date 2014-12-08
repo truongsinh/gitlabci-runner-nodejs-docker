@@ -4,15 +4,14 @@
 # -p 3000:3000
 
 #
- docker run brownman/runner3 sudo -u gitlab_ci_runner -H 'env' > /tmp/env.txt
- cp /tmp/env.txt $CIRCLE_ARTIFACTS/env.txt
- 
-  docker run brownman/runner3 sudo -u gitlab_ci_runner -H 'ps -aux' > /tmp/ps.txt
- cp /tmp/ps.txt $CIRCLE_ARTIFACTS/ps.txt
- 
-   docker run brownman/runner3 sudo -u gitlab_ci_runner -H 'netstat -ntlp' > /tmp/netstat.txt
- cp /tmp/netstat.txt $CIRCLE_ARTIFACTS/netstat.txt
- 
+ docker run brownman/install_config_test env > /tmp/env
+ docker run brownman/install_config_test grunt-cli > /tmp/grunt
+
+ #sudo -u gitlab_ci_runner -H 'env' > /tmp/env.txt
+cp /tmp/env.txt $CIRCLE_ARTIFACTS/env.txt
+cp /tmp/grunt.txt $CIRCLE_ARTIFACTS/grunt.txt
+
+
  
 
 #docker run -d -e "SECRET_KEY_BASE=abcd1234" brownman/runner2 <<START
