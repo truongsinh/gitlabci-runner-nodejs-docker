@@ -11,7 +11,7 @@ cache:
   - bundler
   - vendor/bundle
   - npm_modules
-  - /tmp/nodejs
+  - /tmp
 #  - /opt
 
 matrix:
