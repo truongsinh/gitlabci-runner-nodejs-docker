@@ -15,7 +15,7 @@ switch_user(){
 
   sudo su root - <<START
   echo "whoami $(  whoami )"
-  figlet $RUN
+  toilet --metal $RUN
   ./travis.sh $RUN
 START
 }
