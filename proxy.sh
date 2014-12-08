@@ -23,8 +23,8 @@ ln -s $dir_self/travis.sh /tmp
 }
 
 switch_user(){
-sudo su -c 'whoami'
-sudo su -c "echo /tmp/travis.sh $RUN"
+sudo su -c 'whoami; echo $PATH'
+sudo su -c "/tmp/travis.sh $RUN"
 }
 
 steps(){
