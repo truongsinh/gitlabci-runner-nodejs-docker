@@ -12,7 +12,7 @@ switch_user(){
  # ln -s ./travis.sh /tmp
     # /tmp/travis.sh
 
-  sudo su root <<START
+  sudo su root - <<START
   echo "whoami $(  whoami )"
   ls
   echo RUN: $RUN
