@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+toilet --metal "howami: $(whoami)"
 where_am_i () 
     { 
         local file=${1:-"${BASH_SOURCE[1]}"};
