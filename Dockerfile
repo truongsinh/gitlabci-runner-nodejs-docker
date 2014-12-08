@@ -18,6 +18,7 @@ RUN apt-get -y install sudo
 #who needs it? DOCKER=YES TRAVIS=NO
 ################################################ TRAVIS STEPS
 ADD . /docker
+ADD /opt /docker/opt
 #fix permission
 RUN  chmod u+x /docker/*.sh
 RUN  chmod u+x /docker/install/*.sh
