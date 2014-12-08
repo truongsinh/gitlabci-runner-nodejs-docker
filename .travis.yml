@@ -26,10 +26,11 @@ cache:
   - bundler
   - vendor/bundle
   - npm_modules
-  - /tmp
+  - /tmp/nodejs
 #  - /opt
 
 before_install:
+  - ls -l /tmp/nodejs
   - chmod u+x bashism.sh
   #- ./bashism.sh
 
