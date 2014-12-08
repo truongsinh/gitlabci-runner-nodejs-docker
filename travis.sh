@@ -2,6 +2,7 @@
 pushd `dirname $0` >/dev/null
 set -u
 export RUN=$1
+  toilet --gay $RUN
 
 
 set_env(){
