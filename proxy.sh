@@ -15,7 +15,7 @@ switch_user(){
   sudo su root <<START
   echo "whoami $(  whoami )"
   ls
-  echo $RUN
+  echo RUN: $RUN
   #./travis.sh
 START
 }
