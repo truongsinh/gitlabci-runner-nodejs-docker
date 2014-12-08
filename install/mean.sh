@@ -60,12 +60,13 @@ trace $SUDO  npm link
 install(){
   set_env1
   node1
-  npm1
-  scaffold
+
 }
 
 config(){
   #env | grep opt
+    npm1 | pv
+  scaffold | pv
 trace
 }
 
