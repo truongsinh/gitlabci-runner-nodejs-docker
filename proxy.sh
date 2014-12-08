@@ -9,8 +9,9 @@ echo "---------------------"
 
 switch_user(){
   source config.cfg
-  sudo su root
+  sudo su root <<START
   whoami
+START
 }
 
 switch_user
