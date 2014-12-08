@@ -1,21 +1,34 @@
-
+#NOTE: we have to add /etc/rsyslog.conf using Dockerfile:ADD command
 #http://dockerfile.github.io/#/ruby
 # https://gitlab.com/gitlab-org/gitlab-ci-runner/
 #https://gist.github.com/Gurpartap/ef78033f059cf593e4f0
 set -u
 
-ruby20(){
+rsyslog1(){
+    apt-get update && apt-get -y -q install software-properties-common python-software-properties
+add-apt-repository ppa:adiscon/v8-stable
+apt-get update && apt-get -y -q install rsyslog
+
+sed 's/#$ModLoad imudp/$ModLoad imudp/' -i /etc/rsyslog.conf
+sed 's/#$UDPServerRun 514/$UDPServerRun 514/' -i /etc/rsyslog.conf
+sed 's/#$ModLoad imtcp/$ModLoad imtcp/' -i /etc/rsyslog.conf
+sed 's/#$InputTCPServerRun 514/$InputTCPServerRun 514/' -i /etc/rsyslog.conf
+}
+
+ruby1(){
     #machine dependencies
     sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y build-essential && \
-  apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl git htop man unzip vim wget && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get -y upgrade  
+  
+ # \
+ # apt-get install -y build-essential && \
+ # apt-get install -y software-properties-common && \
+ # apt-get install -y byobu curl git htop man unzip vim wget && \
+ # rm -rf /var/lib/apt/lists/*
   
   # Install Ruby.
-  apt-get update && \
+#  apt-get update && \
   apt-get install -y ruby ruby-dev ruby-bundler && \
   rm -rf /var/lib/apt/lists/*
 }
@@ -78,7 +91,7 @@ ensure which bundler
 
 install(){
 #mute install_ruby_ubuntu
-ruby20
+ruby1
 #mute travis_only
 }
 
