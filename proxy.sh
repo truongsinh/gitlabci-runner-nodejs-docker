@@ -9,12 +9,13 @@ echo "---------------------"
  
 switch_user(){
   source config.cfg
-  ln -s ./travis.sh /tmp
-  
+ # ln -s ./travis.sh /tmp
+    # /tmp/travis.sh
+
   sudo su root <<START
   echo "whoami $(  whoami )"
   ls
-   /tmp/travis.sh
+  ./travis.sh
 START
 }
 
