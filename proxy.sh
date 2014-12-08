@@ -21,4 +21,4 @@ switch_user(){
 START
 }
 
-switch_user
+sudo su -c switch_user
