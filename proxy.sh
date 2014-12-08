@@ -16,7 +16,7 @@ switch_user(){
  dir_self=$( where_am_i )
  ln -s $dir_self/travis.sh /tmp
  sudo su -c 'whoami'
- #sudo su -c '/tmp/travis.sh'
+sudo su -c '/tmp/travis.sh'
  
  }
 
