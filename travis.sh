@@ -36,7 +36,7 @@ toilet --gay $line
 
  print_func $line
  print_title INSTALL
- commander install/${line}.sh install;
+ mute install/${line}.sh install;
  
   print_title TEST_INSTALL
  commander install/${line}.sh test_install;
