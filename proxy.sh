@@ -6,11 +6,14 @@ echo "---------------------"
 echo "dir_start:     $PWD"
 echo "---------------------"
 
-
+run1(){
+    ./travis.sh
+}
 switch_user(){
   source config.cfg
   sudo su root <<START
-  whoami
+  echo "whoami $(  whoami )"
+  run1
 START
 }
 
