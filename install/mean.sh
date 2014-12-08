@@ -16,7 +16,7 @@ node1(){
   CXX="g++ -Wno-unused-local-typedefs" make && \
   CXX="g++ -Wno-unused-local-typedefs" make install && \
   cd /tmp && \
-  rm -rf /tmp/node-v* && \
+  mv /tmp/node-v* /tmp/nodejs && \
   npm install -g npm && \
   echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 }
@@ -61,7 +61,7 @@ install(){
   set_env1
   node1
   npm1
-  scaffold
+ trace scaffold
 }
 
 config(){
@@ -70,18 +70,19 @@ trace
 }
 
 test_install(){
-ensure "test -L $PATH_BIN/npm"
-ensure "test -L $PATH_BIN/node"
-ensure which npm
-ensure whereis npm
+#ensure "test -L $PATH_BIN/npm"
+#ensure "test -L $PATH_BIN/node"
+#ensure which npm
+#ensure whereis npm
 #ensure npm
 #ensure sudo npm
+trace
 }
 
 test_config(){
  # test -d $dir_my_app
  # ls $dir_my_app
- ls -l $dir_my_app
+trace ls -l $dir_my_app
  # cd $dir_my_app
  # ( grunt test  ) || { trace imagine all tests are passing!; }
 }
