@@ -17,7 +17,7 @@ RUN apt-get -y install sudo
 ################################################ TRAVIS STEPS
 ADD . /docker
 RUN chmod +x /docker/proxy.sh
-RUN  /docker/travis.sh install
+RUN  /docker/proxy.sh
 ################################################ SSH: CONFIG
 # Prepare a known host file for non-interactive ssh connections
 #ENV dir_ssh '/root'
