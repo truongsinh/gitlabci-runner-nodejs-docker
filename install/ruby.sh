@@ -5,6 +5,8 @@
 set -u
 
 rsyslog1(){
+        export DEBIAN_FRONTEND=noninteractive
+
         sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
     apt-get update && apt-get -y -q install software-properties-common python-software-properties
 add-apt-repository ppa:adiscon/v8-stable
