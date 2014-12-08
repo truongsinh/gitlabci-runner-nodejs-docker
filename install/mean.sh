@@ -1,5 +1,5 @@
 set -u
-
+set -e
 # NOTE : Permission of myApp is 777
 set_env1(){
  # mkdir1 $dir_my_app
