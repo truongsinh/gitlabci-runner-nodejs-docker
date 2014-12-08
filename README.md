@@ -18,6 +18,7 @@ docker tips:
 - https://github.com/tianon/dockerfiles
 - https://gitlab.com/gitlab-org/gitlab-ci/blob/master/doc/install/installation.md
 - http://dockerfile.github.io/#/nodejs
+- https://blog.logentries.com/2014/03/how-to-run-rsyslog-in-a-docker-container-for-logging/
 
 faster testing:
 ====
