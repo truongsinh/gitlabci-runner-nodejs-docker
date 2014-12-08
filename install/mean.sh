@@ -49,8 +49,8 @@ scaffold(){
  cd $path_my_app
  mean init $APP_NAME
  cd $dir_my_app; 
- $SUDO  npm install -g
- trace $SUDO  npm link
+mute $SUDO  npm install -g
+trace $SUDO  npm link
 }
 
 
