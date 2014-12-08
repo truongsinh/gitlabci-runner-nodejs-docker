@@ -7,9 +7,10 @@ echo "dir_start:     $PWD"
 echo "---------------------"
 
 
+switch_user(){
+  source config.cfg
+  sudo su root
+  whoami
+}
 
-source config.cfg
-./fix/permission.sh
-whoami
-
-ls travis.sh
+switch_user
