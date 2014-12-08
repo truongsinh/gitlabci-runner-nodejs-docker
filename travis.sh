@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 pushd `dirname $0` >/dev/null
 set -u
-
-RUN=${RUN:-all}
+test -v RUN
+export RUN=$RUN
 
 
 set_env(){
