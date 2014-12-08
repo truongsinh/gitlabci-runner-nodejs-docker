@@ -2,6 +2,9 @@
 #RUN ./fix/permission.sh
 #make travis and docker passing step after step together
 #RUN ./travis.sh
+
+set -u
+
 echo "---------------------"
 echo "dir_start:     $PWD"
 echo "---------------------"
@@ -21,7 +24,7 @@ ln -s $dir_self/travis.sh /tmp
 
 switch_user(){
 sudo su -c 'whoami'
-sudo su -c '/tmp/travis.sh'
+sudo su -c "echo /tmp/travis.sh $RUN"
 }
 
 steps(){
