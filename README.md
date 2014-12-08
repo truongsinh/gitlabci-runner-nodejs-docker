@@ -17,6 +17,7 @@ docker tips:
 - http://stackoverflow.com/tags
 - https://github.com/tianon/dockerfiles
 - https://gitlab.com/gitlab-org/gitlab-ci/blob/master/doc/install/installation.md
+- http://dockerfile.github.io/#/nodejs
 
 faster testing:
 ====
