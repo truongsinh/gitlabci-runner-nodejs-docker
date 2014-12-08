@@ -50,7 +50,7 @@ scaffold(){
  mean init $APP_NAME
  cd $dir_my_app; 
  $SUDO  npm install -g
- $SUDO  npm link
+ trace $SUDO  npm link
 }
 
 
@@ -61,7 +61,7 @@ install(){
   set_env1
   node1
   npm1
- trace scaffold
+  scaffold
 }
 
 config(){
