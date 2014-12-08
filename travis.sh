@@ -35,7 +35,7 @@ local line=$1
 
  print_func $line
  print_title INSTALL
- mute install/${line}.sh install;
+ commander install/${line}.sh install;
  
   print_title TEST_INSTALL
  commander install/${line}.sh test_install;
