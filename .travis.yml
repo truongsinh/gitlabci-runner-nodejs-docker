@@ -3,7 +3,17 @@ language: c #cp creationix/nvm/.travis.yml language section
 #services: mongodb
 #global:
 #    - MODE_DEBUG=false 
-    
+
+      
+cache:
+  - apt
+  - npm
+  - bundler
+  - vendor/bundle
+  - npm_modules
+  - /tmp/nodejs
+#  - /opt
+
 matrix:
   allow_failures:
       - env: RUN="test_err"
@@ -19,15 +29,6 @@ env:
   - RUN=test_err
 
         
-      
-cache:
-  - apt
-  - npm
-  - bundler
-  - vendor/bundle
-  - npm_modules
-  - /tmp/nodejs
-#  - /opt
 
 before_install:
   - ls -l /tmp/nodejs
