@@ -6,18 +6,28 @@ echo "---------------------"
 echo "dir_start:     $PWD"
 echo "---------------------"
 
-sudo apt-get install -y toilet figlet 1>/dev/null
-where_am_i(){
-echo $( cd `dirname  $PWD`;echo $PWD; )
+install1(){
+  sudo apt-get install -y toilet figlet 1>/dev/null
 }
-switch_user(){
-  
- source config.cfg
- dir_self=$( where_am_i )
- ln -s $dir_self/travis.sh /tmp
- sudo su -c 'whoami'
-sudo su -c '/tmp/travis.sh'
- 
- }
 
- switch_user
+where_am_i(){
+  echo $( cd `dirname  $PWD`;echo $PWD; )
+}
+
+set_env1(){
+dir_self=$( where_am_i )
+ln -s $dir_self/travis.sh /tmp
+}
+
+switch_user(){
+sudo su -c 'whoami'
+sudo su -c '/tmp/travis.sh'
+}
+
+steps(){
+install1
+set_env1
+switch_user
+}
+
+steps
