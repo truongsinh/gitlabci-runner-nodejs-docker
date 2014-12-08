@@ -6,6 +6,7 @@ echo "---------------------"
 echo "dir_start:     $PWD"
 echo "---------------------"
 
+sudo apt-get install toilet figlet
 
 switch_user(){
   source config.cfg
@@ -16,7 +17,8 @@ switch_user(){
   echo "whoami $(  whoami )"
   ls
   echo RUN: $RUN
-  #./travis.sh
+  figlet $RUN
+  ./travis.sh
 START
 }
 
