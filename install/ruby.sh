@@ -1,3 +1,5 @@
+
+#http://dockerfile.github.io/#/ruby
 # https://gitlab.com/gitlab-org/gitlab-ci-runner/
 #https://gist.github.com/Gurpartap/ef78033f059cf593e4f0
 set -u
@@ -81,8 +83,9 @@ ruby20
 }
 
 config(){
-  trace install_bundler
-  trace install_gitlab_repo
+ # trace install_bundler
+  #trace install_gitlab_repo
+  trace
 }
  
 test_install(){
@@ -90,7 +93,7 @@ test_install(){
 }
 test_config(){
   trace
-  ensure_bundler_exist
+# ensure_bundler_exist
 }
 
 commander $@
