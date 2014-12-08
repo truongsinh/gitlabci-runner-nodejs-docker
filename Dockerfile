@@ -9,6 +9,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV MODE_DEBUG false
 ENV RUN all
 ENV TERM linux
+################################################ DOCKER_ONLY
+RUN echo "root:root" | chpasswd
 ################################################ APT-GET
 RUN echo IMAGINE APT-GET UPDATE..
 RUN apt-get -y update 1>/dev/null
