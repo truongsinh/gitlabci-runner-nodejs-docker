@@ -31,7 +31,7 @@ cache:
 
 before_install:
   - chmod u+x bashism.sh
-  - ./bashism.sh
+  #- ./bashism.sh
 
 script:
   - bash -c 'ls /tmp | grep node'
