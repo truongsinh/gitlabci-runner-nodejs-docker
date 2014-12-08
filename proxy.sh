@@ -11,7 +11,7 @@ install1(){
 }
 
 where_am_i(){
-  echo $( cd `dirname  $PWD`;echo $PWD; )
+  echo $( cd `dirname  $0`;echo $PWD; )
 }
 
 set_env1(){
