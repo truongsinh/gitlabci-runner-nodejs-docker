@@ -31,7 +31,7 @@ env:
         
 
 before_install:
-  - ls -l /tmp/nodejs
+  #- ls -l /tmp/nodejs
   - chmod u+x bashism.sh
   #- ./bashism.sh
 
