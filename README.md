@@ -15,6 +15,7 @@ docker tips:
 - http://handsonwith.com/
 - https://coderwall.com/trending?search=%23docker
 - http://stackoverflow.com/tags
+- https://github.com/tianon/dockerfiles
 
 faster testing:
 ====
