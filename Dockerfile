@@ -18,7 +18,11 @@ RUN apt-get -y install sudo
 #who needs it? DOCKER=YES TRAVIS=NO
 ################################################ TRAVIS STEPS
 ADD . /docker
-RUN  chmod u+x *.sh -R /docker
+#fix permission
+RUN  chmod u+x /docker/*.sh
+RUN  chmod u+x /docker/install/*.sh
+RUN  chmod u+x /docker/fix/*.sh
+#run
 RUN  /docker/proxy.sh
 ################################################ SSH: CONFIG
 # Prepare a known host file for non-interactive ssh connections
