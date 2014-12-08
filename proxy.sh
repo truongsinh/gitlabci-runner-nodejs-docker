@@ -10,7 +10,7 @@ echo "dir_start:     $PWD"
 echo "---------------------"
 
 install1(){
-  sudo apt-get install -y toilet figlet 1>/dev/null
+  sudo apt-get install -y toilet 1>/dev/null
 }
 
 where_am_i(){
