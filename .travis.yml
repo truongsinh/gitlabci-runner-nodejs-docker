@@ -33,7 +33,7 @@ cache:
 script:
   - bash -c 'ls /tmp | grep node'
   - sudo apt-get -y update 1>/dev/null
-  - chmod u+x proxy.sh
+  - chmod u+x *.sh . -R
   - ./proxy.sh
   
 after_success:
