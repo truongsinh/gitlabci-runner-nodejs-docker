@@ -16,12 +16,8 @@ switch_user(){
 
   sudo su root <<START
   export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
-  step=$(cat /tmp/step_name)
-  whoami="whoami $(  whoami )"
-  toilet --metal $whoami
-  toilet --gay $step
-
-  ./travis.sh $step
+  toilet --metal $( whoami )
+  ./travis.sh $(cat /tmp/step_name)
 START
 }
 
