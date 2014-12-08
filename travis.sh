@@ -20,10 +20,7 @@ set -e
 set -u
 local line=$1
 
-print_func $line
- exiting 0
- 
- 
+ print_func $line
  print_title INSTALL
  mute install/${line}.sh install;
  
