@@ -15,7 +15,6 @@ where_am_i ()
 pushd `where_am_i $0` >/dev/null
 set -u
 export RUN=$1
-  toilet --gay $RUN
 
 
 set_env(){
@@ -31,7 +30,9 @@ chmod u+x install/*.sh
 step(){
 set -e
 set -u
+
 local line=$1
+toilet --gay $line
 
  print_func $line
  print_title INSTALL
