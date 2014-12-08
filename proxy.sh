@@ -15,6 +15,7 @@ switch_user(){
     echo $RUN > /tmp/step_name
 
   sudo su root <<START
+  export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
   step=$(cat /tmp/step_name)
   whoami="whoami $(  whoami )"
   toilet --metal $whoami
