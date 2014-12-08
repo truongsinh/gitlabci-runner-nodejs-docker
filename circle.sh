@@ -4,8 +4,8 @@
 # -p 3000:3000
 
 #
- docker run brownman/install_config_test env > /tmp/env
- docker run brownman/install_config_test grunt-cli > /tmp/grunt
+ docker run brownman/install_config_test env > /tmp/env.txt
+ docker run brownman/install_config_test grunt-cli > /tmp/grunt.txt
 
  #sudo -u gitlab_ci_runner -H 'env' > /tmp/env.txt
 cp /tmp/env.txt $CIRCLE_ARTIFACTS/env.txt
