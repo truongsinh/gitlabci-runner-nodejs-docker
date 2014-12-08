@@ -22,18 +22,19 @@ env:
       
 cache:
   - apt
-#  - npm
-#  - bundler
-#  - vendor/bundle
-#  - npm_modules
-#  - /tmp
+  - npm
+  - bundler
+  - vendor/bundle
+  - npm_modules
+  - /tmp
 #  - /opt
 
   
 script:
+  - bash -c 'ls /tmp | grep node'
   - sudo apt-get -y update 1>/dev/null
-  - chmod u+x travis.sh
-  - ./travis.sh
+  - chmod u+x proxy.sh
+  - ./proxy.sh
   
 after_success:
   - echo success
