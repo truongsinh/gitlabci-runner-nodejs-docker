@@ -7,6 +7,7 @@ FROM ubuntu:12.04
 ################################################ ENV_VARS
 ENV DEBIAN_FRONTEND noninteractive
 ENV MODE_DEBUG false
+ENV RUN all
 ENV TERM linux
 ################################################ APT-GET
 RUN echo IMAGINE APT-GET UPDATE..
@@ -15,7 +16,7 @@ RUN apt-get -y install sudo
 #who needs it? DOCKER=YES TRAVIS=NO
 ################################################ TRAVIS STEPS
 ADD . /docker
-RUN chmod +x /docker/travis.sh
+RUN chmod +x /docker/proxy.sh
 RUN  /docker/travis.sh install
 ################################################ SSH: CONFIG
 # Prepare a known host file for non-interactive ssh connections
