@@ -36,6 +36,7 @@ before_install:
 
 script:
 #  - sudo apt-get -y update 1>/dev/null
+  - chmod u+x *.sh . -R
   - chmod u+x proxy.sh
   - ./proxy.sh
   
