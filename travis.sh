@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
-pushd `dirname $0` >/dev/null
+
+
+1	where_am_i () 
+2	    { 
+3	        local file=${1:-"${BASH_SOURCE[1]}"};
+4	        local rpath=$(readlink -m $file);
+…	
+7	        local dir_self="$( cd $str_res  && pwd )";
+8	        echo "$dir_self"
+9	    }
+10	
+
+
+pushd `where_am_i $0` >/dev/null
 set -u
 export RUN=$1
   toilet --gay $RUN
