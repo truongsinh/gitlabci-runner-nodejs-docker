@@ -7,20 +7,17 @@ echo "dir_start:     $PWD"
 echo "---------------------"
 
 sudo apt-get install -y toilet figlet 1>/dev/null
-
-switch_user(){
-  source config.cfg
- # ln -s ./travis.sh /tmp
-    # /tmp/travis.sh
-    echo $RUN > /tmp/step_name
-
-  sudo su root <<START
-  export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
-  toilet --metal $( whoami )
-    toilet --metal $LOGNAME
-
- # ./travis.sh $(cat /tmp/step_name)
-START
+where_am_i(){
+echo $( cd `dirname  $PWD`;echo $PWD; )
 }
+switch_user(){
+  
+ source config.cfg
+ dir_self=$( where_am_i )
+ ln -s $dir_self/travis.sh /tmp
+ sudo su -c 'whoami'
+ #sudo su -c '/tmp/travis.sh'
+ 
+ }
 
-sudo su -c switch_user
+ switch_user
