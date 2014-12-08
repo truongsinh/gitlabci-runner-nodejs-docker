@@ -5,6 +5,7 @@
 set -u
 
 rsyslog1(){
+        sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
     apt-get update && apt-get -y -q install software-properties-common python-software-properties
 add-apt-repository ppa:adiscon/v8-stable
 apt-get update && apt-get -y -q install rsyslog
@@ -16,10 +17,10 @@ sed 's/#$InputTCPServerRun 514/$InputTCPServerRun 514/' -i /etc/rsyslog.conf
 }
 
 ruby1(){
+    rsyslog1
     #machine dependencies
-    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-  apt-get update && \
-  apt-get -y upgrade  
+#  apt-get update && \
+#  apt-get -y upgrade  
   
  # \
  # apt-get install -y build-essential && \
