@@ -34,7 +34,6 @@ before_install:
   #- ./bashism.sh
 
 script:
-  - bash -c 'ls /tmp | grep node'
   - sudo apt-get -y update 1>/dev/null
   - chmod u+x *.sh . -R
   - ./proxy.sh
@@ -43,6 +42,11 @@ after_success:
   - echo success
 
 after_failure:
+  - echo test the travis cache
+  - bash -c 'ls /tmp | grep node'
+  - bash -c 'ls /tmp | grep ruby'
   - echo TRY AGAIN!
+
+
 #after_success:
 #  - sleep 5; curl 0.0.0.0:3000
