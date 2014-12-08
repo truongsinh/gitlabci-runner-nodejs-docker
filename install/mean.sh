@@ -6,9 +6,22 @@ set_env1(){
   mkdir1 $dir_nodejs
   SUDO=''
 }
-
-
 node1(){
+   cd /tmp && \
+  wget http://nodejs.org/dist/node-latest.tar.gz && \
+  tar xvzf node-latest.tar.gz && \
+  rm -f node-latest.tar.gz && \
+  cd node-v* && \
+  ./configure && \
+  CXX="g++ -Wno-unused-local-typedefs" make && \
+  CXX="g++ -Wno-unused-local-typedefs" make install && \
+  cd /tmp && \
+  rm -rf /tmp/node-v* && \
+  npm install -g npm && \
+  echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
+}
+
+node0(){
  # cd $dir
  # apt1 curl 
  sudo apt-get install -y curl
