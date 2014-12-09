@@ -1,4 +1,5 @@
 #must install package sudo on Dockerfile
+#RUN         apt-get install -y -q 
 #openssh-server sudo curl
 
 ppa1(){
@@ -8,16 +9,40 @@ sudo  apt-get -y update
 }
 
 apt1(){
+ 
 while read line;do
 commander "sudo apt-get install -y ${line}"
 done < <( cat <<START
+build-essential 
 cowsay
+gcc 
+git 
+git-core 
+libcurl4-openssl-dev 
+libicu-dev
+libpq-dev
+libreadline-dev
+libreadline-gplv2-dev 
+libssl-dev 
+libxml2 
+libxml2-dev
+libxslt1-dev
+libxslt-dev 
+libyaml-dev
+logrotate
+lsb-release
+make 
+net-tools
+postfix 
+pwgen
 python-software-properties
-wget  net-tools pwgen
-logrotate supervisor
-unzip build-essential zlib1g-dev libyaml-dev libssl-dev libreadline-dev
-gcc make 
-libxml2-dev libxslt-dev libcurl4-openssl-dev libicu-dev libpq-dev git-core postfix 
+software-properties-common
+sudo 
+supervisor
+tklib
+unzip
+wget
+zlib1g-dev
 START
 )
 }
