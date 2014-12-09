@@ -1,6 +1,9 @@
 #must install package sudo on Dockerfile
 #RUN         apt-get install -y -q 
 #openssh-server sudo curl
+search1(){
+ apt-cache search fortune
+}
 update1(){
  sudo  apt-get -y update 
 }
@@ -9,7 +12,7 @@ add_apt_repository1(){
 }
 
 sources1(){
-add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
 }
 
 ppa1(){
@@ -18,12 +21,11 @@ sudo 	add-apt-repository -y ppa:git-core/ppa
 
 apt1(){
 while read line;do
-commander "sudo apt-get install -y ${line}"
+commander "sudo apt-get install -y -q ${line}"
 done <<START
 cowsay
 pv
 toilet
-fortune-mod
 build-essential 
 gcc 
 git 
@@ -62,6 +64,7 @@ add_apt_repository1
 sources1
 ppa1
 update1
+search1
 apt1
 }
 
@@ -73,7 +76,7 @@ whereis cowsay
  
 test_install(){
   /usr/games/cowsay hi
-fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
+echo 'great!' | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
 }
 test_config(){
   trace
