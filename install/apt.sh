@@ -1,20 +1,30 @@
 #must install package sudo on Dockerfile
 #RUN         apt-get install -y -q 
 #openssh-server sudo curl
+update1(){
+ sudo  apt-get -y update 
+}
+add_apt_repository1(){
+ sudo apt-get install -y python-software-properties
+}
+
+sources1(){
+add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
+}
 
 ppa1(){
-sudo apt-get install -y python-software-properties
 sudo 	add-apt-repository -y ppa:git-core/ppa 
-sudo  apt-get -y update 
 }
 
 apt1(){
- 
 while read line;do
 commander "sudo apt-get install -y ${line}"
-done < <( cat <<START
-build-essential 
+done <<START
 cowsay
+pv
+toilet
+fortune-mod
+build-essential 
 gcc 
 git 
 git-core 
@@ -44,12 +54,14 @@ unzip
 wget
 zlib1g-dev
 START
-)
 }
 
 
 install(){	
+add_apt_repository1
+sources1
 ppa1
+update1
 apt1
 }
 
