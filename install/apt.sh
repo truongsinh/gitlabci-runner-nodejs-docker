@@ -73,6 +73,7 @@ whereis cowsay
  
 test_install(){
   /usr/games/cowsay hi
+fortune | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
 }
 test_config(){
   trace
