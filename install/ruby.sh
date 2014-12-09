@@ -4,21 +4,18 @@
 #https://gist.github.com/Gurpartap/ef78033f059cf593e4f0
 set -u
 
-rsyslog1(){
-export DEBIAN_FRONTEND=noninteractive
-sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-apt-get -y update 
-apt-get -y -q install software-properties-common python-software-properties
-add-apt-repository -y ppa:adiscon/v8-stable
-apt-get -y update 
-apt-get -y -q install rsyslog
 
-sed 's/#$ModLoad imudp/$ModLoad imudp/' -i /etc/rsyslog.conf
-sed 's/#$UDPServerRun 514/$UDPServerRun 514/' -i /etc/rsyslog.conf
-sed 's/#$ModLoad imtcp/$ModLoad imtcp/' -i /etc/rsyslog.conf
-sed 's/#$InputTCPServerRun 514/$InputTCPServerRun 514/' -i /etc/rsyslog.conf
+ruby_env(){
+# install ruby, bundler
+  		wget -qO - https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+export 		RBENV_ROOT=${HOME}/.rbenv
+export 		PATH=${RBENV_ROOT}/bin:${PATH}
+
+  		rbenv install $INSTALL_RUBY_VERSION
+  		rbenv global $INSTALL_RUBY_VERSION
+  		echo "eval \"\$(rbenv init -)\"" >> $HOME/.profile
+          . $HOME/.profile && gem install bundler
 }
-
 ruby1(){
     rsyslog1
     #machine dependencies
