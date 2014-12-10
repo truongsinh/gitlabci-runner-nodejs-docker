@@ -14,8 +14,9 @@ wget -qO - https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-ins
 
 rbenv install $INSTALL_RUBY_VERSION
 rbenv global $INSTALL_RUBY_VERSION
-echo "eval \"\$(rbenv init -)\"" >> $HOME/.profile
-. $HOME/.profile && gem install bundler
+echo "eval \"\$(rbenv init -)\"" | sudo tee /root/.profile
+. /root/.profile
+gem install bundler
 }
 
 
