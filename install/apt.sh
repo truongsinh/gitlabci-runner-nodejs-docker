@@ -76,7 +76,7 @@ whereis cowsay
  
 test_install(){
   /usr/games/cowsay hi
-echo 'great!' | cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
+echo 'great!' | /usr/games/cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1)
 }
 test_config(){
   trace
