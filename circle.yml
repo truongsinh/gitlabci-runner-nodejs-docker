@@ -1,0 +1,30 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t brownman/runner2 .
+    
+test:
+  override:
+ #   - docker run -d -p 9200:9200 brownman/docker-gitlab-ci-runner; sleep 10
+#     - curl --retry 10 --retry-delay 5 -v http://localhost:3000
+ #    - echo $(docker run -d -p 3000:3000 brownman/runner2 /bin/bash -c "netstat -ntlp")
+    - chmod u+x circle.sh
+    - ./circle.sh
+     #- docker inspect  brownman/runner2
+     #- docker run -d -p 3000:3000 brownman/runner2 /bin/bash 'env; ls /home/mean; ls ls /home/mean/mean; locate myApp;';
+     #- sleep 10
+     #- curl --retry 10 --retry-delay 5 -v http://localhost:3000
+  post:
+    - bash -c 'env' > $CIRCLE_ARTIFACTS/env.txt
+    
+deployment:
+  hub:
+    branch: master
+    commands:
+       - echo deployment goes here
+  #    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+   #    - docker push brownman/docker-gitlab-ci-runner

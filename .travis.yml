@@ -1,0 +1,55 @@
+language: c #cp creationix/nvm/.travis.yml language section 
+#node_js
+#services: mongodb
+#global:
+#    - MODE_DEBUG=false 
+
+      
+cache:
+  - apt
+  - npm
+  - bundler
+  - vendor/bundle
+  - npm_modules
+  - /tmp
+#  - /opt
+
+matrix:
+  allow_failures:
+      - env: RUN="test_err"
+  fast_finish: true
+  
+env:
+  - RUN=apt
+  - RUN=ssh
+  - RUN=ruby
+  - RUN=mongo
+  - RUN=mean
+  - RUN=all
+  - RUN=test_err
+
+        
+
+before_install:
+  #- ls -l /tmp/nodejs
+  - chmod u+x bashism.sh
+  #- ./bashism.sh
+
+script:
+#  - sudo apt-get -y update 1>/dev/null
+  - chmod u+x *.sh . -R
+  - chmod u+x proxy.sh
+  - ./proxy.sh
+  
+after_success:
+  - echo success
+
+after_failure:
+  - echo test the travis cache
+  - bash -c 'ls /tmp | grep node'
+  - bash -c 'ls /tmp | grep ruby'
+  - echo TRY AGAIN!
+
+
+#after_success:
+#  - sleep 5; curl 0.0.0.0:3000
